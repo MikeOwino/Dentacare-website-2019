@@ -1,0 +1,884 @@
+body {
+    margin: 0;
+    font-family: 'Lato-Regular';
+    color: $main_color;
+    position: relative;
+    overflow-x: hidden;
+    &.overflow-hidden {
+        overflow: hidden;
+    }
+    &.overflow-visible {
+        overflow: visible !important;
+    }
+    &.padding-right-0 {
+        padding-right: 0 !important;
+    }
+    &.modal-open {
+        overflow: hidden;
+    }
+}
+
+@for $i from 0 through 30 * 2 {
+    .padding-bottom-#{$i * 5} {
+        padding-bottom: 0px + $i * 5!important;
+    }
+}
+
+@for $i from 0 through 30 * 2 {
+    .padding-top-#{$i * 5} {
+        padding-top: 0px + $i * 5!important;
+    }
+}
+
+@for $i from 0 through 30 * 2 {
+    .padding-left-#{$i * 5} {
+        padding-left: 0px + $i * 5!important;
+    }
+}
+
+@for $i from 0 through 30 * 2 {
+    .padding-right-#{$i * 5} {
+        padding-right: 0px + $i * 5!important;
+    }
+}
+
+@for $i from 0 through 20 * 2 {
+    @include breakpoint($sm-only)    {
+        .padding-bottom-sm-#{$i * 5} {
+            padding-bottom: 0px + $i * 5!important;
+        }
+    }
+}
+
+@for $i from 0 through 20 * 2 {
+    @include breakpoint($sm-only) {
+        .padding-top-sm-#{$i * 5} {
+            padding-top: 0px + $i * 5 !important;
+        }
+    }
+}
+
+@for $i from 0 through 20 * 2 {
+    @include breakpoint($sm-only) {
+        .padding-left-sm-#{$i * 5} {
+            padding-left: 0px + $i * 5 !important;
+        }
+    }
+}
+
+@for $i from 0 through 20 * 2 {
+    @include breakpoint($sm-only) {
+        .padding-right-sm-#{$i * 5} {
+            padding-right: 0px + $i * 5 !important;
+        }
+    }
+}
+
+@for $i from 0 through 20 * 2 {
+    @include breakpoint($md-only)    {
+        .padding-bottom-md-#{$i * 5} {
+            padding-bottom: 0px + $i * 5!important;
+        }
+    }
+}
+
+@for $i from 0 through 20 * 2 {
+    @include breakpoint($md-only) {
+        .padding-top-md-#{$i * 5} {
+            padding-top: 0px + $i * 5 !important;
+        }
+    }
+}
+
+@for $i from 0 through 20 * 2 {
+    @include breakpoint($md-only) {
+        .padding-left-md-#{$i * 5} {
+            padding-left: 0px + $i * 5 !important;
+        }
+    }
+}
+
+@for $i from 0 through 20 * 2 {
+    @include breakpoint($md-only) {
+        .padding-right-md-#{$i * 5} {
+            padding-right: 0px + $i * 5 !important;
+        }
+    }
+}
+
+@for $i from 0 through 20 * 2 {
+    @include breakpoint($xs)    {
+        .padding-bottom-xs-#{$i * 5} {
+            padding-bottom: 0px + $i * 5!important;
+        }
+    }
+}
+
+@for $i from 0 through 20 * 2 {
+    @include breakpoint($xs) {
+        .padding-top-xs-#{$i * 5} {
+            padding-top: 0px + $i * 5 !important;
+        }
+    }
+}
+
+@for $i from 0 through 20 * 2 {
+    @include breakpoint($xs) {
+        .padding-left-xs-#{$i * 5} {
+            padding-left: 0px + $i * 5 !important;
+        }
+    }
+}
+
+@for $i from 0 through 20 * 2 {
+    @include breakpoint($xs) {
+        .padding-right-xs-#{$i * 5} {
+            padding-right: 0px + $i * 5 !important;
+        }
+    }
+}
+
+@for $i from 0 through 20 * 2 {
+    .margin-left-#{$i * 5} {
+        margin-left: 0px + $i * 5!important;
+    }
+}
+
+@for $i from 0 through 20 * 2 {
+    .margin-right-#{$i * 5} {
+        margin-right: 0px + $i * 5!important;
+    }
+}
+
+@for $i from 0 through 20 * 2 {
+    .margin-bottom-#{$i * 5} {
+        margin-bottom: 0px + $i * 5!important;
+    }
+}
+
+@for $i from 0 through 20 * 2 {
+    .margin-top-#{$i * 5} {
+        margin-top: 0px + $i * 5!important;
+    }
+}
+
+@for $i from 0 through 30 * 2 {
+    .max-width-#{$i * 10} {
+        max-width: 0px + $i * 10!important;
+    }
+}
+
+@for $i from 0 through 15 * 2 {
+    @include breakpoint($xs)    {
+        .max-width-xs-#{$i * 10} {
+            max-width: 0px + $i * 10!important;
+        }
+    }
+}
+
+.max-width-xs-none {
+    @include breakpoint($xs) {
+        max-width: none !important;
+    }
+}
+
+@for $i from 0 through 20 {
+    .width-#{$i * 5} {
+        width: 0% + $i * 5!important;
+    }
+}
+
+@for $i from 0 through 20 {
+    .width-sm-#{$i * 5} {
+        @include breakpoint($sm-only) {
+            width: 0% + $i * 5!important;
+        }
+    }
+}
+
+@for $i from 0 through 20 {
+    @include breakpoint($xs) {
+        .width-xs-#{$i * 5} {
+            width: 0% + $i * 5!important;
+        }
+    }
+}
+
+@for $i from 0 through 30 * 2 {
+    .min-width-#{$i * 10} {
+        min-width: 0px + $i * 10!important;
+    }
+}
+
+@for $i from 0 through 15 * 2 {
+    @include breakpoint($xs)    {
+        .min-width-xs-#{$i * 10} {
+            min-width: 0px + $i * 10!important;
+        }
+    }
+}
+
+
+@for $i from 0 through 100 {
+    .fs-#{$i} {
+        font-size: 0px + $i!important;
+    }
+}
+
+@for $i from 0 through 100 {
+    @include breakpoint($sm-only)    {
+        .fs-sm-#{$i} {
+            font-size: 0px + $i!important;
+        }
+    }
+}
+
+
+@for $i from 0 through 100 {
+    @include breakpoint($xs)    {
+        .fs-xs-#{$i} {
+            font-size: 0px + $i!important;
+        }
+    }
+}
+
+@for $i from 0 through 80 {
+    .line-height-#{$i} {
+        line-height: 0px + $i!important;
+    }
+}
+
+@for $i from 0 through 80 {
+    @include breakpoint($xs)    {
+        .line-height-xs-#{$i} {
+            line-height: 0px + $i!important;
+        }
+    }
+}
+
+@for $i from 0 through 80 {
+    @include breakpoint($sm-only)    {
+        .line-height-sm-#{$i} {
+            line-height: 0px + $i!important;
+        }
+    }
+}
+
+.italic {
+    font-style: italic;
+}
+
+.hide-xs {
+    @include breakpoint($xs)    {
+        display: none !important;
+    }
+}
+
+.display-block {
+    display: block !important;
+}
+
+.display-block-xs {
+    @include breakpoint($xs) {
+        display: block !important;
+    }
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left-xs {
+    @include breakpoint($xs)    {
+        text-align: left !important;
+    }
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.text-right-xs {
+    @include breakpoint($xs)    {
+        text-align: right !important;
+    }
+}
+
+.text-center-xs {
+    @include breakpoint($xs)    {
+        text-align: center !important;
+    }
+}
+
+.text-center-sm {
+    @include breakpoint($sm-only) {
+        text-align: center !important;
+    }
+}
+
+.clear-bootstrap-row {
+    @include breakpoint($xs)    {
+        margin-left: -15px !important;
+        margin-right: -15px !important;
+    }
+}
+
+button, input[type='submit'] {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    &:focus {
+        outline: 5px auto -webkit-focus-ring-color;
+        outline-offset: -2px;
+    }
+}
+
+input[type='file'].hide-input {
+    display: none;
+}
+
+.slick-slider {
+    .slick-slide {
+        &:focus {
+            outline: -webkit-focus-ring-color auto 5px;
+        }
+    }
+}
+
+* {
+    outline: none;
+    box-sizing: border-box;
+}
+
+:focus {
+    outline: transparent none;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.no-gutter {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.no-gutter-xs {
+    @include breakpoint($xs)    {
+        padding-right: 0 !important;
+        padding-left: 0 !important;;
+    }
+}
+
+.inline-block {
+    display: inline-block; float: none; vertical-align: middle;
+}
+
+.inline-block-important{
+    display: inline-block !important; float: none; vertical-align: middle;
+}
+
+.inline-block-top {
+    display: inline-block; float: none; vertical-align: top;
+}
+
+.inline-block-bottom {
+    display: inline-block; float: none; vertical-align: bottom;
+}
+
+.flex {
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+}
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.list-inline {
+    margin-left: 0 !important;
+}
+
+ul, li, h1, h2, h3, h4, h5, h6, p {
+    padding: 0;
+    margin: 0;
+    font-weight: normal;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    color: #4a4a4a;
+    &:hover, &:active, &:visited, &:focus {
+        text-decoration:none;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.visibility-hidden {
+    visibility: hidden;
+}
+
+.visibility-visible {
+    visibility: visible;
+}
+
+.visibility-visible-important {
+    visibility: visible !important;
+}
+
+.captcha-container {
+    justify-content: center;
+    .refresh-captcha {
+        font-size: 20px;
+        color: white;
+        background-color: #21bef4;
+        border: 0;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+@include breakpoint($lg-up) {
+    .container {
+        width: 95%;
+        max-width: 1700px;
+    }
+}
+
+.bootbox {
+    .bootbox-close-button {
+        position: absolute;
+        right: 10px;
+        font-size: 26px;
+        top: 0;
+        margin-top: 0 !important;
+    }
+    &.login-signin-popup {
+        .bootbox-close-button {
+            display: none;
+        }
+        .modal-dialog {
+            width: 95%;
+            max-width: 1000px;
+            .modal-content {
+                background: transparent;
+                border: 0;
+                @include box-shadow(none);
+                .modal-body {
+                    padding: 0;
+                    .popup-header-action {
+                        a {
+                            width: 50%;
+                            font-size: 35px;
+                            padding: 10px;
+                            text-align: center;
+                            border-top: 3px solid white;
+                            border-left: 3px solid white;
+                            border-right: 3px solid white;
+                            @include rounded(4px 4px 0 0);
+                            &[data-type="patient"] {
+                                color: white;
+                                background-color: $light_blue;
+                                border-bottom: 1px solid white;
+                            }
+                            &[data-type="dentist"] {
+                                color: black;
+                                background-color: white;
+                                border-bottom: 1px solid black;
+                            }
+                            @include breakpoint($xs) {
+                                font-size: 20px;
+                                padding: 10px 5px;
+                            }
+                        }
+                    }
+                    .popup-body {
+                        display: flex;
+                        .dentist {
+                            background: white;
+                            .call-sign-up {
+                                font-family: 'Calibri-Bold';
+                                color: black;
+                                &:hover {
+                                    color: black;
+                                }
+                            }
+                            .popup-half-footer {
+                                padding: 30px 0;
+                                margin-top: 50px;
+                                margin-left: -15%;
+                                margin-right: -15%;
+                                text-align: center;
+                                border-top: 1px solid black;
+                                font-size: 16px;
+                                a {
+                                    font-family: 'Calibri-Bold';
+                                    color: black;
+                                    font-size: 16px;
+                                    text-decoration: underline;
+                                }
+                                @include breakpoint($xs) {
+                                    margin-top: 30px;
+                                    margin-left: auto;
+                                    margin-right: auto;
+                                }
+                            }
+                            .form-register {
+                                .step {
+                                    display: none;
+                                    &.visible {
+                                        display: block;
+                                    }
+                                    &.second {
+                                        .user-type-container {
+                                            .user-type {
+                                                width: 50%;
+                                                .custom-button {
+                                                    padding: 5px 10px;
+                                                    display: block;
+                                                    border: 2px solid #dddddd;
+                                                    color: #dddddd;
+                                                    font-size: 20px;
+                                                    @include rounded(4px);
+                                                    .custom-radio {
+                                                        margin-right: 5px;
+                                                        width: 20px;
+                                                        height: 20px;
+                                                        line-height: 20px;
+                                                        border: 1px solid #dddddd;
+                                                        text-align: center;
+                                                        font-size: 0;
+                                                        @include rounded(50%);
+                                                        .circle {
+                                                            width: 10px;
+                                                            height: 10px;
+                                                            background-color: black;
+                                                            background-color: gray;
+                                                            vertical-align: middle;
+                                                            display: none;
+                                                            @include rounded(50%);
+                                                        }
+                                                    }
+                                                }
+                                                &.active {
+                                                    .custom-button {
+                                                        color: $light_blue;
+                                                        border: 2px solid $light_blue;
+                                                        .custom-radio {
+                                                            .circle {
+                                                                display: inline-block;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        .privacy-policy-row {
+                                            input[type='checkbox'] {
+                                                max-width: 170px;
+                                            }
+                                            label {
+                                                display: block;
+                                                white-space: normal;
+                                                text-indent: 25px;
+                                            }
+                                        }
+                                    }
+                                    &.third {
+                                        .phone {
+                                            display: flex;
+                                            align-items: center;
+                                            .country-code {
+                                                font-size: 16px;
+                                                padding-right: 10px;
+                                                color: black;
+                                            }
+                                            .input-phone {
+                                                flex: 1;
+                                            }
+                                        }
+                                    }
+                                    &.fourth {
+                                        .avatar {
+                                            padding-right: 20px;
+                                            width: 50%;
+                                        }
+                                        .specializations {
+                                            width: 50%;
+                                            color: black;
+                                            h4 {
+                                                padding-bottom: 10px;
+                                            }
+                                        }
+                                        .combobox-container {
+                                            .input-group {
+                                                display: block;
+                                            }
+                                            .input-group-addon.dropdown-toggle {
+                                                display: none;
+                                            }
+                                        }
+                                    }
+                                }
+                                .btns-container {
+                                    font-size: 0;
+                                    .inline-block {
+                                        width: 50%;
+                                        .prev-step {
+                                            display: none;
+                                            color: black;
+                                            font-size: 14px;
+                                            font-family: 'Calibri Light';
+                                            border: 0;
+                                            background: transparent;
+                                        }
+                                        .next-step {
+                                            @include breakpoint($xs) {
+                                                font-size: 16px;
+                                                padding: 10px 0;
+                                                width: 100%;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .patient {
+                            background-color: $light_blue;
+                            color: white;
+                            .popup-half-footer {
+                                padding: 30px 0;
+                                margin-top: 80px;
+                                margin-left: -15%;
+                                margin-right: -15%;
+                                text-align: center;
+                                border-top: 1px solid white;
+                                color: white;
+                                font-size: 16px;
+                                a {
+                                    font-family: 'Calibri-Bold';
+                                    font-size: 20px;
+                                    text-decoration: underline;
+                                    color: white;
+                                }
+                                @include breakpoint($xs) {
+                                    margin-top: 30px;
+                                    margin-left: auto;
+                                    margin-right: auto;
+                                }
+                            }
+                        }
+                        .dentist, .patient {
+                            width: 50%;
+                            padding-top: 50px;
+                            border-bottom: 3px solid white;
+                            border-left: 3px solid white;
+                            border-right: 3px solid white;
+                            @include rounded(0 0 4px 4px);
+                            .custom-input {
+                                padding: 7px 12px;
+                            }
+                            h2 {
+                                font-size: 30px;
+                                padding-bottom: 20px;
+                                font-family: "Calibri Light";
+                            }
+                            &.patient {
+                                h2 {
+                                    color: white;
+                                }
+                            }
+                            &.dentist {
+                                h2 {
+                                    color: black;
+                                }
+                            }
+                            .form-register {
+                                display: none;
+                            }
+                            .form-register, .form-login {
+                                width: 70%;
+                                margin: 0 auto;
+                                @include breakpoint($xs) {
+                                    width: 90%;
+                                }
+                            }
+                            &.custom-hide {
+                                visibility: hidden;
+                                @include breakpoint($xs) {
+                                    display: none;
+                                }
+                            }
+                            @include breakpoint($xs) {
+                                padding-top: 30px;
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.popup-html {
+        .bootbox-close-button {
+            font-size: 45px;
+            margin-top: -20px;
+            opacity: 1;
+            color: #424242;
+            position: absolute;
+            right: 15px;
+        }
+        .modal-dialog {
+            width: 95%;
+            max-width: 900px;
+            .modal-body {
+                .bootbox-body {
+                    padding: 0 8%;
+                    .border-bottom {
+                        border-bottom: 1px solid black;
+                    }
+                    .line-crossed {
+                        position: relative;
+                        text-align: center;
+                        span {
+                            background-color: white;
+                            z-index: 5;
+                            padding: 0 10px;
+                            position: relative;
+                        }
+                        &:after {
+                            content: '';
+                            height: 1px;
+                            left: 0;
+                            width: 100%;
+                            background-color: black;
+                            @include vertical-align(absolute);
+                        }
+                    }
+                    form {
+                        padding: 0 50px;
+                        text-align: left;
+                        .error-handle {
+                            display: block;
+                        }
+                        &#enrich-profile {
+                            color: #888888;
+                            textarea {
+                                border: 1px solid #cccccc;
+                                font-size: 16px;
+                                width: 100%;
+                                padding: 10px;
+                                @include rounded(4px);
+                            }
+                        }
+                    }
+                    @include breakpoint($xs) {
+                        padding: 0;
+                        form {
+                            padding: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.pretty {
+    input[type="checkbox"] {
+        width: 100px;
+    }
+    svg.svg {
+        width: 16px !important;
+        height: 16px !important;
+        border: 0 !important;
+        top: 2px !important;
+        left: 2px !important;
+    }
+    label {
+        &:before {
+            width: 20px !important;
+            height: 20px !important;
+            top: 0 !important;
+            left: 0 !important;
+            border-width: 2px !important;
+            border-color: $light_blue !important;
+        }
+        a {
+            text-decoration: underline;
+            font-family: 'Calibri-Bold';
+        }
+    }
+    input:checked~.state.p-success label:after, &.p-toggle .state.p-success label:after {
+        background-color: $light_blue !important;
+        height: 16px !important;
+        width: 16px !important;
+        top: 2px !important;
+        left: 2px !important;
+    }
+    &.white-border {
+        .state label:before {
+            border-color: #bdc3c7 !important;
+        }
+    }
+}
+
+.slick-slider.arrows-type-one {
+    .slick-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-size: auto 100%;
+        z-index: 3;
+        background-color: #7ed0ee;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 40px;
+        height: 40px;
+        display: block;
+        font-size: 0;
+        border: 0;
+        cursor: pointer;
+        @include rounded(50%);
+        &.slick-prev {
+            left: -40px;
+            background-image: url(/assets/images/left-arrow.svg);
+            @include breakpoint($xs) {
+                left: 0;
+            }
+        }
+        &.slick-next {
+            right: -40px;
+            background-image: url(/assets/images/right-arrow.svg);
+            @include breakpoint($xs) {
+                right: 0;
+            }
+        }
+    }
+}

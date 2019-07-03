@@ -1,0 +1,42 @@
+.shortcode {
+    &.shortcode-testimonials {
+        background-repeat: no-repeat;
+        background-position: center top;
+        -webkit-background-size: cover;
+        background-size: cover;
+        background-image: url(/assets/uploads/testimoanials-slider-background.svg);
+        margin-top: -130px;
+        .single-slide {
+            .testimonial-text {
+                width: 80%;
+                margin: 0 auto;
+                @include breakpoint($xs) {
+                    width: 70%;
+                }
+            }
+            .stars {
+                color: #fbd234;
+                font-size: 20px;
+            }
+        }
+        @include breakpoint($xs) {
+            margin-top: -300px;
+            position: relative;
+        }
+    }
+    &.oral-care-journey-slider {
+        .single-slide {
+            padding: 40px 35px;
+            img {
+                width: 100%;
+                @include rounded(30px);
+            }
+            @include breakpoint($xs) {
+                img {
+                    max-width: 220px;
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+}

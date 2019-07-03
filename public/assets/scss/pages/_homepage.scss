@@ -1,0 +1,110 @@
+.section-intro {
+    background-repeat: no-repeat;
+    background-position: center bottom 150px;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-image: url(/assets/uploads/intro-section-background-big.png);
+    @include breakpoint($max-lgl) {
+        background-position: center bottom 100px;
+    }
+    @include breakpoint($xs) {
+        background-image: url(/assets/uploads/background-mobile-768px.png);
+    }
+    .min-height-left {
+        min-height: 900px;
+        @include breakpoint($xs) {
+            min-height: 0;
+        }
+    }
+    .hidden-phones-container {
+        display: none;
+        @include breakpoint($xs) {
+            display: block;
+        }
+    }
+    .moving-phones-parent {
+        .moving-phones-container {
+            position: relative;
+            left: 130%;
+            &.move-back-top {
+                margin-top: -15%;
+                @include simple_transition(.5s);
+            }
+            .left-side, .right-side {
+                max-width: 50%;
+                img {
+                    max-width: 70%;
+                    &.right-rotation {
+                        max-width: 90%;
+                        @include rotate(45deg);
+                        @include simple_transition(.5s);
+                        &.second-phone {
+                            margin-left: -10%;
+                            margin-top: -30%;
+                        }
+                    }
+                    &.left-rotation {
+                        margin-left: 20%;
+                        margin-top: 15%;
+                        max-width: 90%;
+                        @include rotate(-45deg);
+                        @include simple_transition(.5s);
+                    }
+                }
+            }
+        }
+        @include breakpoint($xs) {
+            display: none;
+        }
+    }
+}
+.section-benefits {
+    .single-benefit {
+        img {
+            width: 150px;
+        }
+        .benefit-text {
+            width: calc(100% - 200px);
+        }
+    }
+}
+.section-children-are-loving-it {
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#15aaf0+0,0fc2f2+100 */
+    background: #15aaf0; /* Old browsers */
+    background: -moz-linear-gradient(top,  #15aaf0 0%, #0fc2f2 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #15aaf0 0%,#0fc2f2 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #15aaf0 0%,#0fc2f2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#15aaf0', endColorstr='#0fc2f2',GradientType=0 ); /* IE6-9 */
+    .full-width-image-container {
+        position: relative;
+        .absolute-content {
+            position: absolute;
+            width: 100%;
+            left: 0;
+            bottom: 80px;
+            @include breakpoint($max-1650) {
+                bottom: 65px;
+            }
+            @include breakpoint($max-lgl) {
+                bottom: 25px;
+            }
+        }
+        @include breakpoint($md-down) {
+            .absolute-content {
+                position: static;
+                background: white;
+                margin-top: -100px;
+            }
+        }
+        @include breakpoint($sm-only) {
+            .absolute-content {
+                margin-top: -80px;
+            }
+        }
+        @include breakpoint($xs) {
+            .absolute-content {
+                margin-top: -15%;
+            }
+        }
+    }
+}
