@@ -1,4 +1,5 @@
 basic.init();
+
 $(document).ready(function() {
 
 });
@@ -19,28 +20,19 @@ $(window).on('scroll', function()  {
 
 });
 
-function generateUrl(str)  {
-    var str_arr = str.split("");
-    var cyr = [
-        'Ð°','Ð±','Ð²','Ð³','Ð´','Ðµ','Ñ‘','Ð¶','Ð·','Ð¸','Ð¹','Ðº','Ð»','Ð¼','Ð½','Ð¾','Ð¿',
-        'Ñ€','Ñ','Ñ‚','Ñƒ','Ñ„','Ñ…','Ñ†','Ñ‡','Ñˆ','Ñ‰','ÑŠ','Ñ‹','ÑŒ','Ñ','ÑŽ','Ñ',
-        'Ð','Ð‘','Ð’','Ð“','Ð”','Ð•','Ð','Ð–','Ð—','Ð˜','Ð™','Ðš','Ð›','Ðœ','Ð','Ðž','ÐŸ',
-        'Ð ','Ð¡','Ð¢','Ð£','Ð¤','Ð¥','Ð¦','Ð§','Ð¨','Ð©','Ðª','Ð«','Ð¬','Ð­','Ð®','Ð¯',' '
-    ];
-    var lat = [
-        'a','b','v','g','d','e','io','zh','z','i','y','k','l','m','n','o','p',
-        'r','s','t','u','f','h','ts','ch','sh','sht','a','i','y','e','yu','ya',
-        'A','B','V','G','D','E','Io','Zh','Z','I','Y','K','L','M','N','O','P',
-        'R','S','T','U','F','H','Ts','Ch','Sh','Sht','A','I','Y','e','Yu','Ya','-'
-    ];
-    for(var i = 0; i < str_arr.length; i+=1)  {
-        for(var y = 0; y < cyr.length; y+=1)    {
-            if(str_arr[i] == cyr[y])    {
-                str_arr[i] = lat[y];
-            }
-        }
+var mobile_os = {
+    Android: function() {
+        return navigator.userAgent.match(/Android/i);
+    },
+    iOS: function() {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
     }
-    return str_arr.join("").toLowerCase();
+};
+
+if(mobile_os.iOS()) {
+    $('.android-btn').remove();
+} else if(mobile_os.Android()) {
+    $('.ios-btn').remove();
 }
 
 function checkIfCookie()    {
@@ -51,6 +43,7 @@ function checkIfCookie()    {
         });
     }
 }
+checkIfCookie();
 
 function initCaptchaRefreshEvent()  {
 //refreshing captcha on trying to log in admin
@@ -99,12 +92,12 @@ if($('body').hasClass('home')) {
         });
     }
 
-    if($('.oral-care-journey-slider').length > 0) {
-        $('.oral-care-journey-slider').slick({
+    if($('.oral-care-journey-slider .init-slider').length > 0) {
+        $('.oral-care-journey-slider .init-slider').slick({
             slidesToShow: 5,
             slidesToScroll: 1,
             autoplay: true,
-            autoplaySpeed: 8000,
+            autoplaySpeed: 4000,
             responsive: [
                 {
                     breakpoint: 992,
@@ -120,11 +113,6 @@ if($('body').hasClass('home')) {
                 }
             ]
         });
-
-        setInterval(function() {
-            $('.slick-slide').find('img').css({'box-shadow' : 'none'});
-            $('.slick-current').next().next().find('img').css({'box-shadow' : 'rgba(0, 0, 0, 0.5) 0px 2px 30px 5px'});
-        }, 300);
     }
 } else if($('body').hasClass('forgotten-password')) {
     $('form#forgotten-password').on('submit', function(event) {

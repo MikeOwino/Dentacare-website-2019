@@ -9,14 +9,14 @@
                             <img src="/assets/uploads/dentacare-logo.svg" itemprop="logo" class="max-width-240 max-width-xs-120" alt="Dentacare logo"/>
                         </a>
                     </figure>
-                    <h1 class="fs-55 fs-sm-45 fs-xs-26 text-center-xs padding-right-xs-0 line-height-sm-50 line-height-70 line-height-xs-30 color-white padding-right-50 padding-right-sm-15 padding-right-md-15">Improve Your Oral Care and Earn Rewards!</h1>
+                    <h1 class="fs-55 fs-sm-45 fs-xs-26 text-center-xs padding-right-xs-0 line-height-sm-50 line-height-70 line-height-xs-30 color-white padding-right-50 padding-right-sm-15 padding-right-md-15 padding-top-xs-25">Improve Your Oral Care <br class="show-only-on-xs"> and Earn Rewards!</h1>
                     <h3 class="fs-30 fs-xs-16 text-center-xs color-white padding-top-100 padding-top-xs-25 padding-bottom-20 padding-bottom-xs-10 padding-top-sm-50 padding-top-md-50">Download now to start earning:</h3>
-                    <figure itemscope="" itemtype="http://schema.org/ImageObject" class="inline-block width-xs-100 text-center-xs padding-right-20 padding-right-xs-0 padding-bottom-xs-10">
+                    <figure itemscope="" itemtype="http://schema.org/ImageObject" class="inline-block android-btn width-xs-100 text-center-xs padding-right-20 padding-right-xs-0 padding-bottom-xs-10">
                         <a href="https://play.google.com/store/apps/details?id=com.dentacoin.dentacare&hl=en" target="_blank">
                             <img src="/assets/uploads/google-play-badge.svg" class="width-100 max-width-200" alt="Googe play icon"/>
                         </a>
                     </figure>
-                    <figure itemscope="" itemtype="http://schema.org/ImageObject" class="inline-block width-xs-100 text-center-xs padding-top-sm-10 padding-top-md-10">
+                    <figure itemscope="" itemtype="http://schema.org/ImageObject" class="inline-block ios-btn width-xs-100 text-center-xs padding-top-sm-10 padding-top-md-10">
                         <a href="https://itunes.apple.com/bg/app/dentacare-health-training/id1274148338?mt=8" target="_blank">
                             <img src="/assets/uploads/app-store.svg" class="width-100 max-width-200" alt="App store icon"/>
                         </a>
@@ -101,12 +101,12 @@
                 </div>
                 <div class="col-xs-12 text-center">
                     <div class="fs-26 padding-bottom-10 padding-top-40">Download now to start earning:</div>
-                    <figure itemscope="" itemtype="http://schema.org/ImageObject" class="inline-block display-block-xs padding-right-20 padding-right-xs-0">
+                    <figure itemscope="" itemtype="http://schema.org/ImageObject" class="inline-block android-btn display-block-xs padding-right-20 padding-right-xs-0">
                         <a href="https://play.google.com/store/apps/details?id=com.dentacoin.dentacare&hl=en" target="_blank">
                             <img src="/assets/uploads/google-play-badge.svg" class="width-100 max-width-200" alt="Googe play icon"/>
                         </a>
                     </figure>
-                    <figure itemscope="" itemtype="http://schema.org/ImageObject" class="inline-block display-block-xs padding-top-xs-15">
+                    <figure itemscope="" itemtype="http://schema.org/ImageObject" class="inline-block ios-btn display-block-xs padding-top-xs-15">
                         <a href="https://itunes.apple.com/bg/app/dentacare-health-training/id1274148338?mt=8" target="_blank">
                             <img src="/assets/uploads/app-store.svg" class="width-100 max-width-200" alt="App store icon"/>
                         </a>
@@ -131,15 +131,11 @@
             </picture>
             <div class="absolute-content text-center">
                 <div class="fs-28 fs-xs-20 padding-bottom-15">Coming soon:</div>
-                <figure itemscope="" itemtype="http://schema.org/ImageObject" class="inline-block width-xs-100 padding-right-15 padding-right-xs-0">
-                    <a href="https://play.google.com/store/apps/details?id=com.dentacoin.dentacare&hl=en" target="_blank">
-                        <img src="/assets/uploads/gray-google-play-btn.png" class="max-width-240" alt="Google Play button"/>
-                    </a>
+                <figure itemscope="" itemtype="http://schema.org/ImageObject" class="inline-block android-btn width-xs-100 padding-right-15 padding-right-xs-0">
+                    <img src="/assets/uploads/gray-google-play-btn.png" class="max-width-240 max-width-xs-210" alt="Google Play button"/>
                 </figure>
-                <figure itemscope="" itemtype="http://schema.org/ImageObject" class="inline-block width-xs-100 padding-top-xs-15">
-                    <a href="https://itunes.apple.com/bg/app/dentacare-health-training/id1274148338?mt=8" target="_blank">
-                        <img src="/assets/uploads/gray-apple-store-btn.png" class="max-width-240" alt="App Store button"/>
-                    </a>
+                <figure itemscope="" itemtype="http://schema.org/ImageObject" class="inline-block ios-btn width-xs-100 padding-top-xs-15">
+                    <img src="/assets/uploads/gray-apple-store-btn.png" class="max-width-240 max-width-xs-210" alt="App Store button"/>
                 </figure>
             </div>
         </div>
