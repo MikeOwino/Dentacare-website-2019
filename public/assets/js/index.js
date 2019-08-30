@@ -129,7 +129,7 @@ if($('body').hasClass('home')) {
             appId: '1500240286681345',
             cookie: true,
             xfbml: true,
-            version: 'v2.8'
+            version: 'v2.10'
         });
         FB.AppEvents.logPageView();
     };
