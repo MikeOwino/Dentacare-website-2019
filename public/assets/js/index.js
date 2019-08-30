@@ -182,6 +182,9 @@ if($('body').hasClass('home')) {
                                 user_id: logger_fb_id,
                                 token: fb_token
                             },
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            },
                             success: function (response) {
                                 successfulUserLogin(response);
                             }
