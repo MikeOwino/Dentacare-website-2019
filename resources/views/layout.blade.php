@@ -460,9 +460,6 @@
 <script src="/assets/js/basic.js"></script>
 <script src="/dist/js/front-libs-script.js?v=1.0.4"></script>
 {{--<script src="/dist/js/front-script.js?v=1.0.4"></script>--}}
-@yield("script_block")
-<script src="/assets/js/address.js"></script>
-<script src="/dist/js/front-script.js"></script>
 
 {{--Load social logging scripts only if user is not logged--}}
 @if(!(new \App\Http\Controllers\UserController())->checkSession())
@@ -471,6 +468,9 @@
 
     @php($slow_login_form = \Illuminate\Support\Facades\Input::get('show-login'))
 @endif
+
+@yield("script_block")
+<script src="/dist/js/front-script.js"></script>
 
 {{--Multiple errors from laravel validation--}}
 @if(!empty($errors) && count($errors) > 0)
