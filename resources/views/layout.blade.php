@@ -462,7 +462,7 @@
 {{--<script src="/dist/js/front-script.js?v=1.0.4"></script>--}}
 
 {{--Load social logging scripts only if user is not logged--}}
-@if(!(new \App\Http\Controllers\UserController())->checkSession() && Route::current()->getName() == 'withdraw-dentacare-dcn')
+@if(!(new \App\Http\Controllers\UserController())->checkSession() && !empty(Route::current()) && Route::current()->getName() == 'withdraw-dentacare-dcn')
     <script src="//dentacoin.com/assets/libs/civic-login/civic.js?v=1.0.1"></script>
     <script src="//dentacoin.com/assets/libs/facebook-login/facebook.js?v=1.0.1"></script>
 
