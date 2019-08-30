@@ -17,11 +17,17 @@ Route::group(['prefix' => '/', 'middleware' => 'frontEndMiddleware'], function (
 
     //======================================= PAGES ========================================
 
-    //Route::get('/', 'HomeController@getView')->name('home');
-
     Route::get('/', 'PagesController@getPageView')->name('home');
 
+    Route::get('/withdraw-dentacare-dcn', 'WithdrawDentacareDCNController@getView')->name('withdraw-dentacare-dcn');
+
+    Route::get('/confirm/{token}', 'WithdrawDentacareDCNController@confirmAccount')->name('confirm-dentacare-account');
+
+    Route::post('/submit-withdraw-dentacare-dcn', 'WithdrawDentacareDCNController@dentacareWithdraw')->name('submit-withdraw-dentacare-dcn');
+
     Route::get('/user-logout', 'UserController@userLogout')->name('user-logout');
+
+    Route::post('/authenticate-dentacare-user', 'WithdrawDentacareDCNController@authenticate')->name('authenticate-dentacare-user');
 
     Route::post('/dentist-login', 'UserController@dentistLogin')->name('dentist-login');
 
@@ -48,4 +54,5 @@ Route::group(['prefix' => '/', 'middleware' => 'frontEndMiddleware'], function (
     Route::post('/check-captcha', 'UserController@checkCaptcha')->name('check-captcha');
 
     Route::get('/custom-cookie', 'UserController@manageCustomCookie')->name('custom-cookie');
+
 });

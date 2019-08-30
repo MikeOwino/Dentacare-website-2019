@@ -298,4 +298,128 @@ class APIRequestsController extends Controller {
             return false;
         }
     }
+
+    public function dentacareLogin($data) {
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_URL => 'https://mobileapp.dentacoin.com/api/login',
+            CURLOPT_SSL_VERIFYPEER => 0,
+            CURLOPT_POSTFIELDS => $data
+        ));
+
+        $resp = json_decode(curl_exec($curl));
+        curl_close($curl);
+
+        if(!empty($resp))   {
+            return $resp;
+        }else {
+            return false;
+        }
+    }
+
+    public function getDentacareAccount($token) {
+        $curl = curl_init();
+
+        $header = array();
+        $header[] = 'Accept: */*';
+        $header[] = 'Authorization: Bearer ' . $token;
+        $header[] = 'Cache-Control: no-cache';
+
+        curl_setopt_array($curl, array(
+            CURLOPT_POST => 0,
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_URL => 'https://mobileapp.dentacoin.com/api/user',
+            CURLOPT_SSL_VERIFYPEER => 0,
+            CURLOPT_HTTPHEADER => $header
+        ));
+
+        $resp = json_decode(curl_exec($curl));
+        curl_close($curl);
+
+        if(!empty($resp))   {
+            return $resp;
+        } else {
+            return false;
+        }
+    }
+
+    public function submitConfirmationRequestLink($token) {
+        $curl = curl_init();
+
+        $header = array();
+        $header[] = 'Accept: */*';
+        $header[] = 'Authorization: Bearer ' . $token;
+        $header[] = 'Cache-Control: no-cache';
+
+        curl_setopt_array($curl, array(
+            CURLOPT_POST => 0,
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_URL => 'https://mobileapp.dentacoin.com/api/confirm',
+            CURLOPT_SSL_VERIFYPEER => 0,
+            CURLOPT_HTTPHEADER => $header
+        ));
+
+        $resp = json_decode(curl_exec($curl));
+        curl_close($curl);
+
+        if(!empty($resp))   {
+            return $resp;
+        } else {
+            return false;
+        }
+    }
+
+    public function getUserDashboard($token) {
+        $curl = curl_init();
+
+        $header = array();
+        $header[] = 'Accept: */*';
+        $header[] = 'Authorization: Bearer ' . $token;
+        $header[] = 'Cache-Control: no-cache';
+
+        curl_setopt_array($curl, array(
+            CURLOPT_POST => 0,
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_URL => 'https://mobileapp.dentacoin.com/api/dashboard',
+            CURLOPT_SSL_VERIFYPEER => 0,
+            CURLOPT_HTTPHEADER => $header
+        ));
+
+        $resp = json_decode(curl_exec($curl));
+        curl_close($curl);
+
+        if(!empty($resp))   {
+            return $resp;
+        } else {
+            return false;
+        }
+    }
+
+    public function dentacareWithdraw($token, $data) {
+        $curl = curl_init();
+
+        $header = array();
+        $header[] = 'Accept: */*';
+        $header[] = 'Authorization: Bearer ' . $token;
+        $header[] = 'Cache-Control: no-cache';
+
+        curl_setopt_array($curl, array(
+            CURLOPT_POST => 0,
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_URL => 'https://mobileapp.dentacoin.com/api/transactions',
+            CURLOPT_SSL_VERIFYPEER => 0,
+            CURLOPT_HTTPHEADER => $header,
+            CURLOPT_POSTFIELDS => $data
+        ));
+
+        $resp = json_decode(curl_exec($curl));
+        curl_close($curl);
+
+        if(!empty($resp))   {
+            return $resp;
+        } else {
+            return false;
+        }
+    }
 }

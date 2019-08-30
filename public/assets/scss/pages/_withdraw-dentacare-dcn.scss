@@ -1,0 +1,21 @@
+.section-dentacare-sign-in {
+    background-repeat: no-repeat;
+    background-position: center bottom 0;
+    -webkit-background-size: contain;
+    background-size: contain;
+    background-image: url(/assets/uploads/light-blue-wave-background.png);
+    @include breakpoint($sm-down) {
+        -webkit-background-size: 400%;
+        background-size: 400%;
+        .upgradeable-html {
+            text-align: center;
+            padding-bottom: 30px;
+            .field-parent {
+                margin: 0 auto;
+                .custom-google-label-style.module {
+                    text-align: left;
+                }
+            }
+        }
+    }
+}

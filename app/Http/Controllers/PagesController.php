@@ -31,14 +31,6 @@ class PagesController extends Controller
         echo $html;
     }
 
-    protected function getShortcode($shortcode) {
-        switch ($shortcode) {
-            case 'testimonials':
-                //get view
-                break;
-        }
-    }
-
     protected function getPageView() {
         return view('pages/index-page-with-content', ['page' => Page::where(array('slug' => Route::getCurrentRoute()->getName()))->get()->first()]);
     }
