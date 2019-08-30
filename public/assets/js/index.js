@@ -164,6 +164,8 @@ if($('body').hasClass('home')) {
                 var fb_token = response.authResponse.accessToken;
 
                 console.log(fb_token, 'fb_token');
+                console.log(response, 'response');
+                console.log(response.authResponse, 'response.authResponse');
             }
         }, obj);
     });
