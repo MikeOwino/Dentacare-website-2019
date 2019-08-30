@@ -44,6 +44,40 @@ class WithdrawDentacareDCNController extends Controller
         }
     }
 
+    protected function socialAuthenticate(Request $request)   {
+        $this->validate($request, [
+            'email' => 'email|required',
+            'user_id' => 'required',
+            'token' => 'required',
+        ], [
+            'email.required' => 'Email is required.',
+            'email.email' => 'Email address is not valid.',
+            'user_id.required' => 'User ID is required.',
+            'token.required' => 'Token is required.'
+        ]);
+
+        $login_response = (new APIRequestsController())->dentacareLogin(array('email' => $request->input('email'), 'facebookID' => $request->input('user_id'), 'facebookAccessToken' => $request->input('token')));
+
+        if(property_exists($login_response, 'token')) {
+            //existing account
+            $account_data_response = (new APIRequestsController())->getDentacareAccount($login_response->token);
+            if($account_data_response->confirmed) {
+                $earned_dcn = (new APIRequestsController())->getUserDashboard($login_response->token)->earnedDCN;
+                $upgradeable_content = view('pages/verified-withdraw-dentacare-dcn', ['earned_dcn' => $earned_dcn]);
+                return response()->json(['success' => true, 'upgradeable_content' => $upgradeable_content->render(), 'token' => $login_response->token, 'amount' => $earned_dcn]);
+            } else {
+                $submit_request_link_response = (new APIRequestsController())->submitConfirmationRequestLink($login_response->token);
+                if(property_exists($submit_request_link_response, 'code') && $submit_request_link_response->code == 200) {
+                    return response()->json(['success' => 'We have sent you account confirmation link. Please check your email, click the link and come back to this page.']);
+                } else {
+                    return response()->json(['error' => 'Account Confirmation link have been sent to your email already few minutes ago, please try again later.']);
+                }
+            }
+        } else {
+            return response()->json(['error' => 'Not exiting Dentacare account. Please try again with different username or password.']);
+        }
+    }
+
     protected function dentacareWithdraw(Request $request)   {
         $this->validate($request, [
             'address' => 'required',

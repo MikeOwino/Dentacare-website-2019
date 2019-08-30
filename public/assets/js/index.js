@@ -147,11 +147,6 @@ if($('body').hasClass('home')) {
 
     //binding click event for facebook login btn
     $('body').on('click', '.facebook-dentacare-btn', function(rerequest) {
-        if(basic.cookies.get('social-allowed') == '') {
-            basic.showAlert('Coming soon.', '', true);
-            return false;
-        }
-
         //asking users only for email
         var obj = {
             scope: 'email'
@@ -163,9 +158,36 @@ if($('body').hasClass('home')) {
             if(response.authResponse) {
                 var fb_token = response.authResponse.accessToken;
 
-                console.log(fb_token, 'fb_token');
-                console.log(response, 'response');
-                console.log(response.authResponse, 'response.authResponse');
+                FB.api('/me?fields=id,email,name,permissions', function (response) {
+                    //console.log(response);
+                    var logger_email;
+                    var logger_fb_id = response.id;
+                    if(response.email == null) {
+                        basic.showAlert('Please go to your facebook account privacy settings and make your email public. Without giving us access to your email we cannot proceed with the login.', '', true);
+                        return true;
+                    } else{
+                        logger_email = response.email;
+                    }
+
+                    console.log(logger_email, 'logger_email');
+                    console.log(logger_fb_id, 'logger_fb_id');
+                    console.log(fb_token, 'fb_token');
+
+                    return false;
+                    $.ajax({
+                        type: 'POST',
+                        url: '/check-email',
+                        dataType: 'json',
+                        data: {
+                            email: fb_token,
+                            token: fb_token,
+                            token: fb_token
+                        },
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+                });
             }
         }, obj);
     });
