@@ -29,6 +29,8 @@ Route::group(['prefix' => '/', 'middleware' => 'frontEndMiddleware'], function (
 
     Route::post('/authenticate-dentacare-user', 'WithdrawDentacareDCNController@authenticate')->name('authenticate-dentacare-user');
 
+    Route::post('/social-authenticate-dentacare-user', 'WithdrawDentacareDCNController@socialAuthenticate')->name('social-authenticate-dentacare-user');
+
     Route::post('/dentist-login', 'UserController@dentistLogin')->name('dentist-login');
 
     Route::post('/dentist-register', 'UserController@dentistRegister')->name('dentist-register');

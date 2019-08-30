@@ -158,36 +158,36 @@ if($('body').hasClass('home')) {
             if(response.authResponse) {
                 var fb_token = response.authResponse.accessToken;
 
-                FB.api('/me?fields=id,email,name,permissions', function (response) {
-                    //console.log(response);
-                    var logger_email;
-                    var logger_fb_id = response.id;
-                    if(response.email == null) {
-                        basic.showAlert('Please go to your facebook account privacy settings and make your email public. Without giving us access to your email we cannot proceed with the login.', '', true);
-                        return true;
-                    } else{
-                        logger_email = response.email;
-                    }
 
-                    console.log(logger_email, 'logger_email');
-                    console.log(logger_fb_id, 'logger_fb_id');
-                    console.log(fb_token, 'fb_token');
-
-                    return false;
-                    $.ajax({
-                        type: 'POST',
-                        url: '/check-email',
-                        dataType: 'json',
-                        data: {
-                            email: fb_token,
-                            token: fb_token,
-                            token: fb_token
-                        },
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                $('.response-layer').show();
+                setTimeout(function() {
+                    FB.api('/me?fields=id,email,name,permissions', function (response) {
+                        //console.log(response);
+                        var logger_email;
+                        var logger_fb_id = response.id;
+                        if(response.email == null) {
+                            basic.showAlert('Please go to your facebook account privacy settings and make your email public. Without giving us access to your email we cannot proceed with the login.', '', true);
+                            $('.response-layer').hide();
+                            return true;
+                        } else{
+                            logger_email = response.email;
                         }
+
+                        $.ajax({
+                            type: 'POST',
+                            url: '/social-authenticate-dentacare-user',
+                            dataType: 'json',
+                            data: {
+                                email: logger_email,
+                                user_id: logger_fb_id,
+                                token: fb_token
+                            },
+                            success: function (response) {
+                                successfulUserLogin(response);
+                            }
+                        });
                     });
-                });
+                }, 1000);
             }
         }, obj);
     });
@@ -229,77 +229,81 @@ if($('body').hasClass('home')) {
                         password: this_form.find('input[name="password"]').val().trim()
                     },
                     success: function (response) {
-                        $('.response-layer').hide();
-                        basic.closeDialog();
-                        if(response.success) {
-                            if(response.upgradeable_content) {
-                                $('.upgradeable-html').html(response.upgradeable_content);
-
-                                $('form#dentacare-withdraw').on('submit', function(event) {
-                                    event.preventDefault();
-                                    var this_withdraw_form = $(this);
-                                    this_withdraw_form.find('.error-handle').remove();
-                                    var withdraw_form_fields = this_withdraw_form.find('.form-field');
-                                    var submit_withdraw_form = true;
-
-                                    if(this_withdraw_form.attr('data-stoppage') == 'true') {
-                                        customErrorHandle(this_withdraw_form, 'You don\'t have any DCN balance at the moment.');
-                                        submit_withdraw_form = false;
-                                    }
-
-                                    for (var y = 0, withdraw_form_len = withdraw_form_fields.length; y < withdraw_form_len; y+=1) {
-                                        if (withdraw_form_fields.eq(y).val().trim() == '') {
-                                            customErrorHandle(withdraw_form_fields.eq(y).closest('.field-parent'), 'This field is required.');
-                                            submit_withdraw_form = false;
-                                        } else if(withdraw_form_fields.eq(y).attr('name') == 'dentacare-address' && withdraw_form_fields.eq(y).val().trim().length != 42) {
-                                            customErrorHandle(withdraw_form_fields.eq(y).closest('.field-parent'), 'Please use valid Wallet Address.');
-                                            submit_withdraw_form = false;
-                                        }
-                                    }
-
-                                    if (submit_withdraw_form) {
-                                        $('.response-layer').show();
-
-                                        setTimeout(function() {
-                                            $.ajax({
-                                                type: 'POST',
-                                                url: '/submit-withdraw-dentacare-dcn',
-                                                dataType: 'json',
-                                                data: {
-                                                    token: response.token,
-                                                    amount: response.amount,
-                                                    address: this_withdraw_form.find('input[name="dentacare-address"]').val().trim()
-                                                },
-                                                headers: {
-                                                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                                                },
-                                                success: function (withdraw_response) {
-                                                    $('.response-layer').hide();
-                                                    basic.closeDialog();
-
-                                                    if(withdraw_response.success) {
-                                                        this_withdraw_form.find('input[name="dentacare-address"]').val('');
-                                                        basic.showAlert(withdraw_response.success, '', true);
-                                                    } else if(withdraw_response.error) {
-                                                        basic.showAlert(withdraw_response.error, '', true);
-                                                    }
-                                                }
-                                            });
-                                        }, 1000);
-                                    }
-                                });
-
-                            } else {
-                                basic.showAlert(response.success, '', true);
-                            }
-                        } else if(response.error) {
-                            basic.showAlert(response.error, '', true);
-                        }
+                        successfulUserLogin(response);
                     }
                 });
             }, 1000);
         }
     });
+}
+
+function successfulUserLogin(response) {
+    $('.response-layer').hide();
+    basic.closeDialog();
+    if(response.success) {
+        if(response.upgradeable_content) {
+            $('.upgradeable-html').html(response.upgradeable_content);
+
+            $('form#dentacare-withdraw').on('submit', function(event) {
+                event.preventDefault();
+                var this_withdraw_form = $(this);
+                this_withdraw_form.find('.error-handle').remove();
+                var withdraw_form_fields = this_withdraw_form.find('.form-field');
+                var submit_withdraw_form = true;
+
+                if(this_withdraw_form.attr('data-stoppage') == 'true') {
+                    customErrorHandle(this_withdraw_form, 'You don\'t have any DCN balance at the moment.');
+                    submit_withdraw_form = false;
+                }
+
+                for (var y = 0, withdraw_form_len = withdraw_form_fields.length; y < withdraw_form_len; y+=1) {
+                    if (withdraw_form_fields.eq(y).val().trim() == '') {
+                        customErrorHandle(withdraw_form_fields.eq(y).closest('.field-parent'), 'This field is required.');
+                        submit_withdraw_form = false;
+                    } else if(withdraw_form_fields.eq(y).attr('name') == 'dentacare-address' && withdraw_form_fields.eq(y).val().trim().length != 42) {
+                        customErrorHandle(withdraw_form_fields.eq(y).closest('.field-parent'), 'Please use valid Wallet Address.');
+                        submit_withdraw_form = false;
+                    }
+                }
+
+                if (submit_withdraw_form) {
+                    $('.response-layer').show();
+
+                    setTimeout(function() {
+                        $.ajax({
+                            type: 'POST',
+                            url: '/submit-withdraw-dentacare-dcn',
+                            dataType: 'json',
+                            data: {
+                                token: response.token,
+                                amount: response.amount,
+                                address: this_withdraw_form.find('input[name="dentacare-address"]').val().trim()
+                            },
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            },
+                            success: function (withdraw_response) {
+                                $('.response-layer').hide();
+                                basic.closeDialog();
+
+                                if(withdraw_response.success) {
+                                    this_withdraw_form.find('input[name="dentacare-address"]').val('');
+                                    basic.showAlert(withdraw_response.success, '', true);
+                                } else if(withdraw_response.error) {
+                                    basic.showAlert(withdraw_response.error, '', true);
+                                }
+                            }
+                        });
+                    }, 1000);
+                }
+            });
+
+        } else {
+            basic.showAlert(response.success, '', true);
+        }
+    } else if(response.error) {
+        basic.showAlert(response.error, '', true);
+    }
 }
 
 //LOGGED IN LOGIC
