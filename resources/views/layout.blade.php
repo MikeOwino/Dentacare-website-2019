@@ -465,12 +465,12 @@
 <script src="/dist/js/front-script.js"></script>
 
 {{--Load social logging scripts only if user is not logged--}}
-{{--@if(!(new \App\Http\Controllers\UserController())->checkSession())
+@if(!(new \App\Http\Controllers\UserController())->checkSession())
     <script src="//dentacoin.com/assets/libs/civic-login/civic.js?v=1.0.1"></script>
     <script src="//dentacoin.com/assets/libs/facebook-login/facebook.js?v=1.0.1"></script>
 
     @php($slow_login_form = \Illuminate\Support\Facades\Input::get('show-login'))
-@endif--}}
+@endif
 
 {{--Multiple errors from laravel validation--}}
 @if(!empty($errors) && count($errors) > 0)
