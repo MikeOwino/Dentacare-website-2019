@@ -110,12 +110,14 @@ class WithdrawDentacareDCNController extends Controller
     protected function confirmAccount($token) {
         if(!empty($token)) {
             $user = DB::connection('mysql2')->table('users')->leftJoin('denta_users', 'users.id', '=', 'denta_users.id')->select('users.*', 'denta_users.confirmation_token_validity')->where(array('confirmation_token' => $token))->get()->first();
+            var_dump($user);
+            die('asd');
             if (time() - strtotime($user->confirmation_token_validity) > 60*60*24) {
                 return view('pages/account-verification', ['info' => true]);
             } else {
                 if(!empty($user)) {
                     //removing the token
-                    DB::connection('mysql2')->table('users')->whconfirmation_token_validityere(array('confirmation_token' => $token, 'id' => $user->id))->limit(1)->update(array('confirmation_token' => NULL));
+                    DB::connection('mysql2')->table('users')->where(array('confirmation_token' => $token, 'id' => $user->id))->limit(1)->update(array('confirmation_token' => NULL));
 
                     DB::connection('mysql2')->table('denta_users')->where(array('id' => $user->id))->limit(1)->update(array('confirmation_token_validity' => NULL));
                     return view('pages/account-verification', ['success' => true]);
