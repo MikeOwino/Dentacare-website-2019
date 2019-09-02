@@ -117,7 +117,7 @@ class WithdrawDentacareDCNController extends Controller
                     //removing the token
                     DB::connection('mysql2')->table('users')->where(array('confirmation_token' => $token, 'id' => $user->id))->limit(1)->update(array('confirmation_token' => NULL,));
 
-                    DB::connection('mysql2')->table('denta_users')->where(array('id' => $user->id))->limit(1)->update(array('confirmation_token_validity' => NULL));
+                    DB::connection('mysql2')->table('denta_users')->where(array('id' => $user->id))->limit(1)->update(array('confirmation_token_validity' => NULL, 'verified' => true));
                     return view('pages/account-verification', ['success' => true]);
                 } else {
                     return view('pages/account-verification', ['error' => true]);
