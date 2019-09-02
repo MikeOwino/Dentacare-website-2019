@@ -109,7 +109,7 @@ class WithdrawDentacareDCNController extends Controller
 
     protected function confirmAccount($token) {
         if(!empty($token)) {
-            $user = DB::connection('mysql2')->table('users')->leftJoin('denta_users', 'users.id', '=', 'denta_users.id')->select('users.*', 'denta_users.confirmation_token_validity')->where(array('confirmation_token' => $token))->get()->first();
+            $user = DB::connection('mysql2')->table('users')->leftJoin('denta_users', 'users.id', '=', 'denta_users.id')->select('users.*', 'denta_users.confirmation_token_validity')->where(array('users.confirmation_token' => $token))->get()->first();
             var_dump($token);
             var_dump($user);
             die('asd');
