@@ -151,7 +151,7 @@
                         <span class="padding-right-10 inline-block fs-14">Stay in the loop:</span>
                         <ul class="inline-block">
                             <li class="inline-block">
-                                <a itemprop="sameAs" target="_blank" href="https://www.facebook.com/dentacoin/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a itemprop="sameAs" target="_blank" href="https://www.facebook.com/dentacare.dentacoin/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
                             </li>
                             <li class="inline-block telegram">
                                 <a itemprop="sameAs" target="_blank" href="https://t.me/dentacoin"><i class="fa fa-telegram"></i></a>
