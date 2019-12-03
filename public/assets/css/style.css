@@ -5755,6 +5755,11 @@ img {
   bottom: 0;
   left: 0;
   z-index: 1035; }
+  .bottom-fixed-container .banner {
+    -webkit-box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
+    -ms-box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5); }
   .bottom-fixed-container .privacy-policy-cookie {
     padding-top: 20px;
     padding-bottom: 20px;
