@@ -34,6 +34,12 @@
 <body class="@if(!empty(Route::current())) {{Route::current()->getName()}} @else class-404 @endif @if((new \App\Http\Controllers\UserController())->checkSession()) logged-in @endif">
 
 <div class="bottom-fixed-container">
+    <a href="https://dentacoin.com/holiday-calendar-2019" target="_blank" class="display-block">
+        <picture itemscope="" itemtype="http://schema.org/ImageObject">
+            <source media="(max-width: 992px)" srcset="//dentacoin.com/assets/uploads/mobile-christmas-banner-small.gif"/>
+            <img src="//dentacoin.com/assets/uploads/christmas-banner.gif" alt="Holiday calendar banner" class="width-100" itemprop="contentUrl"/>
+        </picture>
+    </a>
     @if(empty($_COOKIE['privacy_policy']))
         <div class="privacy-policy-cookie">
             <div class="container">
@@ -112,7 +118,7 @@
     </div>
 </header>
 <main>@yield('content')</main>
-<footer class="margin-top-30 padding-bottom-100">
+<footer class="margin-top-30 padding-bottom-150 padding-bottom-sm-200 padding-bottom-xs-200">
     <div class="container">
         <div class="row fs-0">
             <div class="col-xs-12 col-md-10 col-md-offset-1 border-top padding-top-40">
