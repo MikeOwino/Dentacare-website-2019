@@ -57,4 +57,5 @@ Route::group(['prefix' => '/', 'middleware' => 'frontEndMiddleware'], function (
 
     Route::get('/custom-cookie', 'UserController@manageCustomCookie')->name('custom-cookie');
 
+    Route::get('/sitemap', 'Controller@getSitemap')->name('sitemap');
 });
