@@ -130,14 +130,15 @@
                 <img class="width-100" alt="Children are loving it" itemprop="contentUrl" src="/assets/uploads/children-are-loving-it-background.png">
             </picture>
             <div class="absolute-content text-center">
+                <div class="fs-28 fs-xs-20 padding-bottom-15">Download Jaws of Battle:</div>
                 <figure itemscope="" itemtype="http://schema.org/ImageObject" class="inline-block android-btn width-xs-100 padding-right-15 padding-right-xs-0">
                     <a href="https://play.google.com/apps/testing/com.DentaCare.JawsOfBattle" target="_blank">
-                        <img src="/assets/uploads/google-play-badge.svg" class="max-width-240 max-width-xs-210" alt="Google Play button"/>
+                        <img src="/assets/uploads/google-play-badge.svg" class="max-width-240 max-width-xs-210 width-100" alt="Google Play button"/>
                     </a>
                 </figure>
                 <figure itemscope="" itemtype="http://schema.org/ImageObject" class="inline-block ios-btn width-xs-100 padding-top-xs-15">
                     <a href="https://testflight.apple.com/join/hOg8An1t" target="_blank">
-                        <img src="/assets/uploads//assets/uploads/app-store.svg" class="max-width-240 max-width-xs-210" alt="App Store button"/>
+                        <img src="/assets/uploads/app-store.svg" class="max-width-240 max-width-xs-210 width-100" alt="App Store button"/>
                     </a>
                 </figure>
             </div>

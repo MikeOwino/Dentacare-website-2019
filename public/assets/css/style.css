@@ -6530,13 +6530,13 @@ footer .border-top {
       .section-children-are-loving-it .full-width-image-container .absolute-content {
         position: static;
         background: white;
-        margin-top: -40px; } }
+        margin-top: -80px; } }
     @media screen and (min-width: 768px) and (max-width: 991px) {
       .section-children-are-loving-it .full-width-image-container .absolute-content {
-        margin-top: -20px; } }
+        margin-top: -40px; } }
     @media screen and (max-width: 767px) {
       .section-children-are-loving-it .full-width-image-container .absolute-content {
-        margin-top: -10%; } }
+        margin-top: -15%; } }
 
 .forgotten-and-recover-password-section {
   background-repeat: no-repeat;

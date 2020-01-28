@@ -80,7 +80,7 @@
         .absolute-content {
             position: absolute;
             width: 100%;
-            left: 0;
+            left: 0; 
             bottom: 80px;
             @include breakpoint($max-1650) {
                 bottom: 65px;
@@ -93,17 +93,17 @@
             .absolute-content {
                 position: static;
                 background: white;
-                margin-top: -40px;
+                margin-top: -80px;
             }
         }
         @include breakpoint($sm-only) {
             .absolute-content {
-                margin-top: -20px;
+                margin-top: -40px;
             }
         }
         @include breakpoint($xs) {
             .absolute-content {
-                margin-top: -10%;
+                margin-top: -15%;
             }
         }
     }
