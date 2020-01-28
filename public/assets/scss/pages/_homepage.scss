@@ -80,14 +80,8 @@
         .absolute-content {
             position: absolute;
             width: 100%;
-            left: 0; 
-            bottom: 80px;
-            @include breakpoint($max-1650) {
-                bottom: 65px;
-            }
-            @include breakpoint($max-lgl) {
-                bottom: 25px;
-            }
+            left: 0;
+            bottom: 0; 
         }
         @include breakpoint($md-down) {
             .absolute-content {

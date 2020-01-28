@@ -6519,13 +6519,7 @@ footer .border-top {
       position: absolute;
       width: 100%;
       left: 0;
-      bottom: 80px; }
-      @media screen and (max-width: 1600px) {
-        .section-children-are-loving-it .full-width-image-container .absolute-content {
-          bottom: 65px; } }
-      @media screen and (max-width: 1450px) {
-        .section-children-are-loving-it .full-width-image-container .absolute-content {
-          bottom: 25px; } }
+      bottom: 0; }
     @media screen and (max-width: 1199px) {
       .section-children-are-loving-it .full-width-image-container .absolute-content {
         position: static;
