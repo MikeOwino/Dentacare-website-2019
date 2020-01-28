@@ -93,17 +93,17 @@
             .absolute-content {
                 position: static;
                 background: white;
-                margin-top: -100px;
+                margin-top: -40px;
             }
         }
         @include breakpoint($sm-only) {
             .absolute-content {
-                margin-top: -80px;
+                margin-top: -20px;
             }
         }
         @include breakpoint($xs) {
             .absolute-content {
-                margin-top: -15%;
+                margin-top: -10%;
             }
         }
     }

@@ -1,4 +1,6 @@
-basic.init();
+console.log('Don\'t touch the code. Or do ... ¯\\_(ツ)_/¯');
+
+checkIfCookie();
 
 $(document).ready(function() {
 
@@ -36,14 +38,54 @@ if(mobile_os.iOS()) {
 }
 
 function checkIfCookie()    {
-    if($('.privacy-policy-cookie').length > 0)  {
-        $('.privacy-policy-cookie .accept').click(function()    {
-            basic.cookies.set('privacy_policy', 1);
-            $('.privacy-policy-cookie').hide();
+    if ($('.privacy-policy-cookie').length > 0)  {
+        $('.privacy-policy-cookie .accept-all').click(function()    {
+            basic.cookies.set('performance_cookies', 1);
+            basic.cookies.set('functionality_cookies', 1);
+            basic.cookies.set('marketing_cookies', 1);
+            basic.cookies.set('strictly_necessary_policy', 1);
+
+            window.location.reload();
+        });
+
+        $('.adjust-cookies').click(function() {
+            $('.customize-cookies').remove();
+
+            $('.privacy-policy-cookie').append('<div class="customize-cookies"><button class="close-customize-cookies close-customize-cookies-popup">×</button><div class="text-center"><img src="/assets/images/cookie-icon.svg" alt="Cookie icon" class="cookie-icon"/></div><div class="text-center padding-top-10 padding-bottom-20 fs-20">Select cookies to accept:</div><div class="cookies-options-list"><ul><li><div class="pretty p-svg p-curve"><input checked disabled type="checkbox" id="strictly-necessary-cookies"/><div class="state p-success"><svg class="svg svg-icon" viewBox="0 0 20 20"><path d="M7.629,14.566c0.125,0.125,0.291,0.188,0.456,0.188c0.164,0,0.329-0.062,0.456-0.188l8.219-8.221c0.252-0.252,0.252-0.659,0-0.911c-0.252-0.252-0.659-0.252-0.911,0l-7.764,7.763L4.152,9.267c-0.252-0.251-0.66-0.251-0.911,0c-0.252,0.252-0.252,0.66,0,0.911L7.629,14.566z" style="stroke: white;fill:white;"></path></svg><label for="strictly-necessary-cookies"><span>Strictly necessary</span> <i class="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip" title="Cookies essential to navigate around the website and use its features. Without them, you wouldn’t be able to use basic services like signup or login."></i></label></div></div></li><li><div class="pretty p-svg p-curve"><input checked type="checkbox" id="functionality-cookies"/><div class="state p-success"><svg class="svg svg-icon" viewBox="0 0 20 20"><path d="M7.629,14.566c0.125,0.125,0.291,0.188,0.456,0.188c0.164,0,0.329-0.062,0.456-0.188l8.219-8.221c0.252-0.252,0.252-0.659,0-0.911c-0.252-0.252-0.659-0.252-0.911,0l-7.764,7.763L4.152,9.267c-0.252-0.251-0.66-0.251-0.911,0c-0.252,0.252-0.252,0.66,0,0.911L7.629,14.566z" style="stroke: white;fill:white;"></path></svg><label for="functionality-cookies">Functionality cookies <i class="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip" title="These cookies allow users to customise how a website looks for them; they can remember usernames, preferences, etc."></i></label></div></div></li></ul><ul><li><div class="pretty p-svg p-curve"><input checked type="checkbox" id="performance-cookies"/><div class="state p-success"><svg class="svg svg-icon" viewBox="0 0 20 20"><path d="M7.629,14.566c0.125,0.125,0.291,0.188,0.456,0.188c0.164,0,0.329-0.062,0.456-0.188l8.219-8.221c0.252-0.252,0.252-0.659,0-0.911c-0.252-0.252-0.659-0.252-0.911,0l-7.764,7.763L4.152,9.267c-0.252-0.251-0.66-0.251-0.911,0c-0.252,0.252-0.252,0.66,0,0.911L7.629,14.566z" style="stroke: white;fill:white;"></path></svg><label for="performance-cookies">Performance cookies <i class="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip" title="These cookies collect data for statistical purposes on how visitors use a website, they don’t contain personal data and are used to improve user experience."></i></label></div></div></li><li><div class="pretty p-svg p-curve"><input checked type="checkbox" id="marketing-cookies"/><div class="state p-success"><svg class="svg svg-icon" viewBox="0 0 20 20"><path d="M7.629,14.566c0.125,0.125,0.291,0.188,0.456,0.188c0.164,0,0.329-0.062,0.456-0.188l8.219-8.221c0.252-0.252,0.252-0.659,0-0.911c-0.252-0.252-0.659-0.252-0.911,0l-7.764,7.763L4.152,9.267c-0.252-0.251-0.66-0.251-0.911,0c-0.252,0.252-0.252,0.66,0,0.911L7.629,14.566z" style="stroke: white;fill:white;"></path></svg><label for="marketing-cookies">Marketing cookies <i class="fa fa-info-circle" aria-hidden="true" data-toggle="tooltip" title="Marketing cookies are used e.g. to deliver advertisements more relevant to you or limit the number of times you see an advertisement."></i></label></div></div></li></ul></div><div class="text-center actions"><a href="javascript:void(0);" class="light-blue-white-btn margin-right-10 close-customize-cookies-popup">CANCEL</a><a href="javascript:void(0);" class="white-light-blue-btn custom-cookie-save">SAVE</a></div><div class="custom-triangle"></div></div>');
+
+            initTooltips();
+
+            $('.close-customize-cookies-popup').click(function() {
+                $('.customize-cookies').remove();
+            });
+
+            $('.custom-cookie-save').click(function() {
+                basic.cookies.set('strictly_necessary_policy', 1);
+
+                if($('#functionality-cookies').is(':checked')) {
+                    basic.cookies.set('functionality_cookies', 1);
+                }
+
+                if($('#marketing-cookies').is(':checked')) {
+                    basic.cookies.set('marketing_cookies', 1);
+                }
+
+                if($('#performance-cookies').is(':checked')) {
+                    basic.cookies.set('performance_cookies', 1);
+                }
+
+                window.location.reload();
+            });
         });
     }
 }
-checkIfCookie();
+
+// init bootstrap tooltips
+function initTooltips() {
+    if($('[data-toggle="tooltip"]')) {
+        $('[data-toggle="tooltip"]').tooltip();
+    }
+}
 
 function initCaptchaRefreshEvent()  {
 //refreshing captcha on trying to log in admin
@@ -273,6 +315,8 @@ function successfulUserLogin(response) {
                     $('.response-layer').show();
 
                     setTimeout(function() {
+                        fireGoogleAnalyticsEvent('Withdraw', 'Collect', 'Rewards', response.amount);
+
                         $.ajax({
                             type: 'POST',
                             url: '/submit-withdraw-dentacare-dcn',
@@ -859,7 +903,7 @@ function apiEventsListeners() {
             }
 
             //check if CoreDB returned address for this user and if its valid one
-            if(basic.objHasKey(custom_form_obj, 'address') != null && innerAddressCheck(custom_form_obj.address)) {
+            if(basic.property_exists(custom_form_obj, 'address') != null && innerAddressCheck(custom_form_obj.address)) {
                 //var current_dentists_for_logging_user = await App.assurance_methods.getWaitingContractsForPatient(custom_form_obj.address);
                 //if(current_dentists_for_logging_user.length > 0) {
                 //custom_form_obj.have_contracts = true;
@@ -959,8 +1003,8 @@ function has(object, key) {
 
 function fireGoogleAnalyticsEvent(category, action, label, value) {
     var event_obj = {
-        'event_action' : action,
         'event_category': category,
+        'event_action' : action,
         'event_label': label
     };
 
@@ -970,5 +1014,47 @@ function fireGoogleAnalyticsEvent(category, action, label, value) {
 
     //gtag('event', label, event_obj);
 }
+
+function bindDentacareGooglePlayBtnClick() {
+    $(document).on('click', '.dentacare-google-play-btn-click', function(event) {
+        event.preventDefault();
+        fireGoogleAnalyticsEvent('Download', 'Click', 'Google Play');
+        fbq('track', 'DentaGooglePlay');
+
+        window.open($(this).attr('href'));
+    });
+}
+bindDentacareGooglePlayBtnClick();
+
+function bindDentacareAppStoreBtnClick() {
+    $(document).on('click', '.dentacare-app-store-btn-click', function(event) {
+        event.preventDefault();
+        fireGoogleAnalyticsEvent('Download', 'Click', 'Apple');
+        fbq('track', 'DentaAppStore');
+
+        window.open($(this).attr('href'));
+    });
+}
+bindDentacareAppStoreBtnClick();
+
+function bindTRPLinkTracker() {
+    $(document).on('click', '.trp-link-tracker', function(event) {
+        event.preventDefault();
+        fireGoogleAnalyticsEvent('Tools', 'Click', 'TRP');
+
+        window.open($(this).attr('href'));
+    });
+}
+bindTRPLinkTracker();
+
+function bindDVLinkTracker() {
+    $(document).on('click', '.db-link-tracker', function(event) {
+        event.preventDefault();
+        fireGoogleAnalyticsEvent('Tools', 'Click', 'Vox');
+
+        window.open($(this).attr('href'));
+    });
+}
+bindDVLinkTracker();
 
 // =================================== /GOOGLE ANALYTICS TRACKING LOGIC ======================================

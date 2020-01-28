@@ -33,7 +33,7 @@ mix.scripts([
 ], 'public/dist/js/front-libs-script.js');
 
 mix.scripts([
-    'public/assets/js/basic.js',
+    /*'public/assets/js/basic.js',*/
     'public/assets/js/address.js',
     'public/assets/js/index.js'
 ], 'public/dist/js/front-script.js');

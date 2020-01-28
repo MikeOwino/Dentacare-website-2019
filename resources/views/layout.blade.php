@@ -25,11 +25,46 @@
     <style>
 
     </style>
-    <link rel="stylesheet" type="text/css" href="/dist/css/front-libs-style.css">
-    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/dist/css/front-libs-style.css?v=1.0.6">
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css?v=1.0.6">
     <script>
         var HOME_URL = '{{ route("home") }}';
     </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108398439-5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        @if(empty($_COOKIE['performance_cookie']))
+            gtag('config', 'UA-108398439-5', {'anonymize_ip': true});
+        @else
+            gtag('config', 'UA-108398439-5');
+        @endif
+    </script>
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        @if(empty($_COOKIE['marketing_cookies']))
+            fbq('consent', 'revoke');
+        @else
+            fbq('consent', 'grant');
+        @endif
+        fbq('init', '2366034370318681');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2366034370318681&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- End Facebook Pixel Code -->
 </head>
 <body class="@if(!empty(Route::current())) {{Route::current()->getName()}} @else class-404 @endif @if((new \App\Http\Controllers\UserController())->checkSession()) logged-in @endif">
 
@@ -40,13 +75,13 @@
             <img src="//dentacoin.com/assets/uploads/christmas-banner.gif" alt="Holiday calendar banner" class="width-100" itemprop="contentUrl"/>
         </picture>
     </a>--}}
-    @if(empty($_COOKIE['privacy_policy']))
+    @if(empty($_COOKIE['performance_cookies']) && empty($_COOKIE['functionality_cookies']) && empty($_COOKIE['marketing_cookies']) && empty($_COOKIE['strictly_necessary_policy']))
         <div class="privacy-policy-cookie">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
-                        <div class="text inline-block">This site uses cookies. Read more about the use of personal data in our <a href="//dentacoin.com/privacy-policy" class="link" target="_blank">Privacy Policy</a>.</div>
-                        <div class="button inline-block"><a href="javascript:void(0);" class="white-light-blue-btn accept">Accept</a></div>
+                        <div class="text inline-block">This site uses cookies. Find out more on how we use cookies in our <a href="https://dentacoin.com/privacy-policy" class="link" target="_blank">Privacy Policy</a>. | <a href="javascript:void(0);" class="link adjust-cookies">Adjust cookies</a></div>
+                        <div class="button inline-block"><a href="javascript:void(0);" class="white-light-blue-btn accept-all">Accept all cookies</a></div>
                     </div>
                 </div>
             </div>
@@ -173,7 +208,7 @@
     </div>
 </footer>
 
-@if(!\App\Http\Controllers\UserController::instance()->checkSession() && !empty(Route::current()) && Route::current()->getName() == 'home')
+{{--@if(!\App\Http\Controllers\UserController::instance()->checkSession() && !empty(Route::current()) && Route::current()->getName() == 'home')
     @php($inviter = \Illuminate\Support\Facades\Input::get('inviter'))
     @php($api_enums = (new \App\Http\Controllers\APIRequestsController())->getAllEnums())
     <div class="hidden-login-form hide">
@@ -452,7 +487,7 @@
     <img src="//reviews.dentacoin.com/custom-cookie?slug={{ urlencode($slug) }}&type={{ urlencode($type) }}&token={{ urlencode($token) }}" class="hide"/>
     <img src="//dentavox.dentacoin.com/custom-cookie?slug={{ urlencode($slug) }}&type={{ urlencode($type) }}&token={{ urlencode($token) }}" class="hide"/>
     <img src="//account.dentacoin.com/custom-cookie?slug={{ urlencode($slug) }}&type={{ urlencode($type) }}&token={{ urlencode($token) }}" class="hide"/>
-@endif
+@endif--}}
 
 <div class="response-layer">
     <div class="wrapper">
@@ -463,14 +498,14 @@
 </div>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaVeHq_LOhQndssbmw-aDnlMwUG73yCdk&libraries=places&language=en"></script>
-<script src="/assets/js/basic.js"></script>
-<script src="/dist/js/front-libs-script.js?v=1.0.4"></script>
-{{--<script src="/dist/js/front-script.js?v=1.0.4"></script>--}}
+<script src="https://dentacoin.com/assets/js/basic.js?v=1.0.6"></script>
+<script src="/dist/js/front-libs-script.js?v=1.0.6"></script>
+{{--<script src="/dist/js/front-script.js?v=1.0.6"></script>--}}
 
 {{--Load social logging scripts only if user is not logged--}}
 @if(!(new \App\Http\Controllers\UserController())->checkSession() && !empty(Route::current()) && Route::current()->getName() == 'withdraw-dentacare-dcn')
-    <script src="//dentacoin.com/assets/libs/civic-login/civic.js?v=1.0.1"></script>
-    <script src="//dentacoin.com/assets/libs/facebook-login/facebook.js?v=1.0.1"></script>
+    <script src="//dentacoin.com/assets/libs/civic-login/civic.js?v=1.0.6"></script>
+    <script src="//dentacoin.com/assets/libs/facebook-login/facebook.js?v=1.0.6"></script>
 
     @php($slow_login_form = \Illuminate\Support\Facades\Input::get('show-login'))
 @endif
