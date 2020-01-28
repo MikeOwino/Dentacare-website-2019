@@ -37,7 +37,7 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
-        @if(empty($_COOKIE['performance_cookie']))
+        @if(empty($_COOKIE['performance_cookies']))
             gtag('config', 'UA-108398439-5', {'anonymize_ip': true});
         @else
             gtag('config', 'UA-108398439-5');
