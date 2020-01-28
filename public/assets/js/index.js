@@ -1040,6 +1040,7 @@ bindDentacareAppStoreBtnClick();
 function bindTRPLinkTracker() {
     $(document).on('click', '.trp-link-tracker', function(event) {
         event.preventDefault();
+        console.log('lolwhat');
         fireGoogleAnalyticsEvent('Tools', 'Click', 'TRP');
 
         window.open($(this).attr('href'));
