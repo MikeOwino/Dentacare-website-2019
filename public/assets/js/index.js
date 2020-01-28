@@ -1012,7 +1012,7 @@ function fireGoogleAnalyticsEvent(category, action, label, value) {
         event_obj.value = value;
     }
 
-    //gtag('event', label, event_obj);
+    gtag('event', label, event_obj);
 }
 
 function bindDentacareGooglePlayBtnClick() {
@@ -1040,7 +1040,6 @@ bindDentacareAppStoreBtnClick();
 function bindTRPLinkTracker() {
     $(document).on('click', '.trp-link-tracker', function(event) {
         event.preventDefault();
-        console.log('lolwhat');
         fireGoogleAnalyticsEvent('Tools', 'Click', 'TRP');
 
         window.open($(this).attr('href'));
