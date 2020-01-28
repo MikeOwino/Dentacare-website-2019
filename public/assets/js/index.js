@@ -1048,7 +1048,7 @@ function bindTRPLinkTracker() {
 bindTRPLinkTracker();
 
 function bindDVLinkTracker() {
-    $(document).on('click', '.db-link-tracker', function(event) {
+    $(document).on('click', '.vox-link-tracker', function(event) {
         event.preventDefault();
         fireGoogleAnalyticsEvent('Tools', 'Click', 'Vox');
 
