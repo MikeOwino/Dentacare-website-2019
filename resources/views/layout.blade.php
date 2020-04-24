@@ -154,60 +154,55 @@
 </header>
 <main>@yield('content')</main>
 <footer class="margin-top-30 padding-bottom-50">
-    <div class="container">
-        <div class="row fs-0">
-            <div class="col-xs-12 col-md-10 col-md-offset-1 border-top padding-top-40">
-                <div class="row">
-                    <div class="col-xs-12 col-md-3 inline-block text-center-xs text-center-sm padding-bottom-xs-20 padding-bottom-sm-20">
-                        <figure itemscope="" itemtype="http://schema.org/Organization">
-                            <a itemprop="url" href="//dentacoin.com" class="fs-14">
-                                <img src="/assets/images/logo.svg" itemprop="logo" class="max-width-30" alt="Dentacoin logo"/>
-                                <span class="color-main padding-left-10 inline-block">Powered by Dentacoin</span>
-                            </a>
-                        </figure>
-                    </div>
-                    <div class="col-xs-12 col-md-6 text-center inline-block padding-bottom-xs-20 padding-bottom-sm-20">
-                        @if(!empty(Route::current()))
-                            @php($footer_menu = \App\Http\Controllers\Controller::instance()->getMenu('footer'))
-                            @if(!empty($footer_menu) && sizeof($footer_menu) > 0)
-                                <ul itemscope="" itemtype="http://schema.org/SiteNavigationElement" class="fs-14 color-main">
-                                    @php($pass_first = false)
-                                    @foreach($footer_menu as $menu_el)
-                                        @if((isset($mobile) && $mobile && $menu_el->mobile_visible) || (isset($mobile) && !$mobile && $menu_el->desktop_visible))
-                                            @if($pass_first)
-                                                <li class="inline-block-top separator">|</li>
-                                            @endif
-                                            <li class="inline-block-top"><a @if($menu_el->new_window) target="_blank" @endif itemprop="url" href="{{$menu_el->url}}" class="color-main {{$menu_el->class_attribute}}"><span itemprop="name">{!! $menu_el->name !!}</span></a></li>
-                                            @if(!$pass_first)
-                                                @php($pass_first = true)
-                                            @endif
-                                        @endif
-                                    @endforeach
-                                </ul>
+    <div class="row fs-0">
+        <div class="col-xs-12 col-md-3 inline-block text-center-xs text-center-sm padding-bottom-xs-20 padding-bottom-sm-20">
+            <figure itemscope="" itemtype="http://schema.org/Organization">
+                <a itemprop="url" href="//dentacoin.com" class="fs-14">
+                    <img src="/assets/images/logo.svg" itemprop="logo" class="max-width-30" alt="Dentacoin logo"/>
+                    <span class="color-main padding-left-10 inline-block">Powered by Dentacoin</span>
+                </a>
+            </figure>
+        </div>
+        <div class="col-xs-12 col-md-6 text-center inline-block padding-bottom-xs-20 padding-bottom-sm-20">
+            @if(!empty(Route::current()))
+                @php($footer_menu = \App\Http\Controllers\Controller::instance()->getMenu('footer'))
+                @if(!empty($footer_menu) && sizeof($footer_menu) > 0)
+                    <ul itemscope="" itemtype="http://schema.org/SiteNavigationElement" class="fs-14 color-main">
+                        @php($pass_first = false)
+                        @foreach($footer_menu as $menu_el)
+                            @if((isset($mobile) && $mobile && $menu_el->mobile_visible) || (isset($mobile) && !$mobile && $menu_el->desktop_visible))
+                                @if($pass_first)
+                                    <li class="inline-block-top separator">|</li>
+                                @endif
+                                <li class="inline-block-top"><a @if($menu_el->new_window) target="_blank" @endif itemprop="url" href="{{$menu_el->url}}" class="color-main {{$menu_el->class_attribute}}"><span itemprop="name">{!! $menu_el->name !!}</span></a></li>
+                                @if(!$pass_first)
+                                    @php($pass_first = true)
+                                @endif
                             @endif
-                        @endif
-                    </div>
-                    <div class="col-xs-12 col-md-3 inline-block text-right socials text-center-xs text-center-sm" itemscope="" itemtype="http://schema.org/Organization">
-                        <link itemprop="url" href="{{ route('home') }}">
-                        <ul class="inline-block">
-                            <li class="inline-block">
-                                <a itemprop="sameAs" target="_blank" href="https://www.facebook.com/dentacare.dentacoin/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                            </li>
-                            <li class="inline-block telegram">
-                                <a itemprop="sameAs" target="_blank" href="https://t.me/dentacoin"><i class="fa fa-telegram"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="row color-main padding-top-20 fs-14 text-center">
-                    © {{date('Y')}} Dentacoin Foundation. All rights reserved.
-                    <div><a href="//dentacoin.com/assets/uploads/dentacoin-foundation.pdf" class="text-decoration" target="_blank">Verify Dentacoin Foundation</a> | <a href="//dentacoin.com/privacy-policy" target="_blank" class="text-decoration">Privacy Policy</a></div>
-                </div>
-            </div>
+                        @endforeach
+                    </ul>
+                @endif
+            @endif
+        </div>
+        <div class="col-xs-12 col-md-3 inline-block text-right socials text-center-xs text-center-sm" itemscope="" itemtype="http://schema.org/Organization">
+            <link itemprop="url" href="{{ route('home') }}">
+            <ul class="inline-block">
+                <li class="inline-block">
+                    <a itemprop="sameAs" target="_blank" href="https://www.facebook.com/dentacare.dentacoin/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                </li>
+                <li class="inline-block telegram">
+                    <a itemprop="sameAs" target="_blank" href="https://t.me/dentacoin"><i class="fa fa-telegram"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row color-main">
+        <div class="col-xs-12 text-center fs-14 padding-top-20">
+            © {{date('Y')}} Dentacoin Foundation. All rights reserved.
+            <div><a href="//dentacoin.com/assets/uploads/dentacoin-foundation.pdf" class="text-decoration" target="_blank">Verify Dentacoin Foundation</a> | <a href="//dentacoin.com/privacy-policy" target="_blank" class="text-decoration">Privacy Policy</a></div>
         </div>
     </div>
 </footer>
-
 {{--@if(!\App\Http\Controllers\UserController::instance()->checkSession() && !empty(Route::current()) && Route::current()->getName() == 'home')
     @php($inviter = \Illuminate\Support\Facades\Input::get('inviter'))
     @php($api_enums = (new \App\Http\Controllers\APIRequestsController())->getAllEnums())

@@ -5900,6 +5900,9 @@ img {
       width: 95%;
       margin-bottom: 15px; }
 
+.text-decoration {
+  text-decoration: underline; }
+
 .light-blue-white-btn, input[type='submit'].light-blue-white-btn {
   font-size: 20px;
   color: #02a6db;
