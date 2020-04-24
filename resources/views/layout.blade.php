@@ -153,7 +153,7 @@
     </div>
 </header>
 <main>@yield('content')</main>
-<footer class="margin-top-30 padding-bottom-150 padding-bottom-sm-200 padding-bottom-xs-200">
+<footer class="margin-top-30 padding-bottom-50">
     <div class="container">
         <div class="row fs-0">
             <div class="col-xs-12 col-md-10 col-md-offset-1 border-top padding-top-40">
@@ -189,7 +189,6 @@
                     </div>
                     <div class="col-xs-12 col-md-3 inline-block text-right socials text-center-xs text-center-sm" itemscope="" itemtype="http://schema.org/Organization">
                         <link itemprop="url" href="{{ route('home') }}">
-                        <span class="padding-right-10 inline-block fs-14">Stay in the loop:</span>
                         <ul class="inline-block">
                             <li class="inline-block">
                                 <a itemprop="sameAs" target="_blank" href="https://www.facebook.com/dentacare.dentacoin/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
@@ -200,8 +199,9 @@
                         </ul>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-xs-12 text-center fs-12 padding-top-10 color-main">® Dentacoin Foundation. All rights reserved. 2019</div>
+                <div class="row color-main padding-top-20 fs-14 text-center">
+                    © {{date('Y')}} Dentacoin Foundation. All rights reserved.
+                    <div><a href="//dentacoin.com/assets/uploads/dentacoin-foundation.pdf" class="text-decoration" target="_blank">Verify Dentacoin Foundation</a> | <a href="//dentacoin.com/privacy-policy" target="_blank" class="text-decoration">Privacy Policy</a></div>
                 </div>
             </div>
         </div>
