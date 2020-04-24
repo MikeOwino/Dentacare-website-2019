@@ -153,7 +153,7 @@
     </div>
 </header>
 <main>@yield('content')</main>
-<footer class="margin-top-30 padding-bottom-50">
+<footer class="margin-top-30 padding-bottom-40 margin-top-20 container border-top">
     <div class="row fs-0">
         <div class="col-xs-12 col-md-3 inline-block text-center-xs text-center-sm padding-bottom-xs-20 padding-bottom-sm-20">
             <figure itemscope="" itemtype="http://schema.org/Organization">
