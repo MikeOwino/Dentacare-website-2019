@@ -9,6 +9,8 @@
                 <div class="col-xs-12 col-sm-offset-3 col-sm-6 col-lg-offset-4 col-lg-4">
                     @if(session('success-response'))
                         <div class="alert alert-success fs-18 margin-top-25">{!! session('success-response') !!}</div>
+                    @elseif(session('error-response'))
+                        <div class="alert alert-danger fs-18 margin-top-25">{!! session('error-response') !!}</div>
                     @else
                         <form action="{{route('submit-dentacare-password-reset', ['token' => $token])}}" method="POST" id="dentacare-password-reset-form">
                             <div class="padding-bottom-20 field-parent">
