@@ -20,13 +20,13 @@
                     </div>
                     <form id="dentacare-sign-in">
                         <div class="padding-bottom-20 field-parent max-width-500">
-                            <div class="custom-google-label-style module" data-input-blue-green-border="true">
+                            <div class="custom-google-label-style module" data-input-colorful-border="true">
                                 <label for="dentacare-email">Email:</label>
                                 <input type="text" name="email" id="dentacare-email" maxlength="50" class="full-rounded form-field"/>
                             </div>
                         </div>
                         <div class="padding-bottom-30 field-parent max-width-500">
-                            <div class="custom-google-label-style module" data-input-blue-green-border="true">
+                            <div class="custom-google-label-style module" data-input-colorful-border="true">
                                 <label for="dentacare-password">Password:</label>
                                 <input type="password" name="password" id="dentacare-password" maxlength="50" class="full-rounded form-field"/>
                             </div>

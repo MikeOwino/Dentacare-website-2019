@@ -8,7 +8,7 @@
 </h2>
 <form id="dentacare-withdraw" @if($earned_dcn <= 0) data-stoppage="true" @endif>
     <div class="padding-bottom-30 field-parent max-width-500">
-        <div class="custom-google-label-style module" data-input-blue-green-border="true">
+        <div class="custom-google-label-style module" data-input-colorful-border="true">
             <label for="dentacare-address">Enter your wallet address and withdraw</label>
             <input type="text" name="dentacare-address" id="dentacare-address" maxlength="42" class="full-rounded form-field"/>
         </div>

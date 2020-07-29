@@ -279,26 +279,6 @@ class APIRequestsController extends Controller {
         }
     }
 
-    public function updateAnonymousUserData($data) {
-        $curl = curl_init();
-        curl_setopt_array($curl, array(
-            CURLOPT_RETURNTRANSFER => 1,
-            CURLOPT_POST => 1,
-            CURLOPT_URL => 'https://api.dentacoin.com/api/user-anonymous/',
-            CURLOPT_SSL_VERIFYPEER => 0,
-            CURLOPT_POSTFIELDS => $data
-        ));
-
-        $resp = json_decode(curl_exec($curl));
-        curl_close($curl);
-
-        if(!empty($resp))   {
-            return $resp;
-        }else {
-            return false;
-        }
-    }
-
     public function dentacareLogin($data) {
         $curl = curl_init();
         curl_setopt_array($curl, array(
@@ -419,6 +399,25 @@ class APIRequestsController extends Controller {
         if(!empty($resp))   {
             return $resp;
         } else {
+            return false;
+        }
+    }
+
+    public function resetPassword($token, $data) {
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_URL => 'http://dentacare-mobile-app-api.test/reset-password/'.$token,
+            CURLOPT_SSL_VERIFYPEER => 0,
+            CURLOPT_POSTFIELDS => $data
+        ));
+
+        $resp = json_decode(curl_exec($curl));
+        curl_close($curl);
+
+        if(!empty($resp))   {
+            return $resp;
+        }else {
             return false;
         }
     }

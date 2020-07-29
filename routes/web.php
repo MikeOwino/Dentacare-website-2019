@@ -19,41 +19,21 @@ Route::group(['prefix' => '/', 'middleware' => 'frontEndMiddleware'], function (
 
     Route::get('/', 'PagesController@getPageView')->name('home');
 
-    Route::get('/withdraw-dentacare-dcn', 'WithdrawDentacareDCNController@getView')->name('withdraw-dentacare-dcn');
+    Route::get('/withdraw-dentacare-dcn', 'DentacareDCNController@getView')->name('withdraw-dentacare-dcn');
 
-    Route::get('/confirm/{token}', 'WithdrawDentacareDCNController@confirmAccount')->name('confirm-dentacare-account');
+    Route::get('/confirm/{token}', 'DentacareDCNController@confirmAccount')->name('confirm-dentacare-account');
 
-    Route::post('/submit-withdraw-dentacare-dcn', 'WithdrawDentacareDCNController@dentacareWithdraw')->name('submit-withdraw-dentacare-dcn');
+    Route::post('/submit-withdraw-dentacare-dcn', 'DentacareDCNController@dentacareWithdraw')->name('submit-withdraw-dentacare-dcn');
+
+    Route::get('/dentacare-password-reset/{token?}', 'DentacareDCNController@getPasswordResetView')->name('dentacare-password-reset');
+
+    Route::post('/submit-dentacare-password-reset/{token}', 'DentacareDCNController@submitPasswordReset')->name('submit-dentacare-password-reset');
 
     Route::get('/user-logout', 'UserController@userLogout')->name('user-logout');
 
-    Route::post('/authenticate-dentacare-user', 'WithdrawDentacareDCNController@authenticate')->name('authenticate-dentacare-user');
+    Route::post('/authenticate-dentacare-user', 'DentacareDCNController@authenticate')->name('authenticate-dentacare-user');
 
-    Route::post('/social-authenticate-dentacare-user', 'WithdrawDentacareDCNController@socialAuthenticate')->name('social-authenticate-dentacare-user');
-
-    Route::post('/dentist-login', 'UserController@dentistLogin')->name('dentist-login');
-
-    Route::post('/dentist-register', 'UserController@dentistRegister')->name('dentist-register');
-
-    Route::post('/patient-login', 'UserController@patientLogin')->name('patient-login');
-
-    Route::get('/forgotten-password', 'UserController@getForgottenPasswordView')->name('forgotten-password');
-
-    Route::post('/password-recover', 'UserController@getRecoverPassword')->name('password-recover');
-
-    Route::post('/forgotten-password-submit', 'UserController@forgottenPasswordSubmit')->name('forgotten-password-submit');
-
-    Route::post('/password-recover-submit', 'UserController@changePasswordSubmit')->name('password-recover-submit');
-
-    Route::post('/enrich-profile', 'UserController@enrichProfile')->name('enrich-profile');
-
-    Route::post('/invite-your-clinic', 'UserController@inviteYourClinic')->name('invite-your-clinic');
-
-    Route::post('/check-dentist-account', 'UserController@checkDentistAccount')->name('check-dentist-account');
-
-    Route::post('/check-email', 'UserController@checkEmail')->name('check-email');
-
-    Route::post('/check-captcha', 'UserController@checkCaptcha')->name('check-captcha');
+    Route::post('/social-authenticate-dentacare-user', 'DentacareDCNController@socialAuthenticate')->name('social-authenticate-dentacare-user');
 
     Route::get('/custom-cookie', 'UserController@manageCustomCookie')->name('custom-cookie');
 
