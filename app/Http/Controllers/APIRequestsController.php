@@ -407,7 +407,7 @@ class APIRequestsController extends Controller {
         $curl = curl_init();
         curl_setopt_array($curl, array(
             CURLOPT_RETURNTRANSFER => 1,
-            CURLOPT_URL => 'http://dentacare-mobile-app-api.test/reset-password/'.$token,
+            CURLOPT_URL => 'https://dev-mobileapp.dentacoin.com/reset-password/'.$token,
             CURLOPT_SSL_VERIFYPEER => 0,
             CURLOPT_POSTFIELDS => $data
         ));
