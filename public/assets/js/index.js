@@ -458,6 +458,28 @@ function fireGoogleAnalyticsEvent(category, action, label, value) {
     gtag('event', label, event_obj);
 }
 
+function bindJawsOfBattleGooglePlayBtnClick() {
+    $(document).on('click', '.jaws-of-battle-google-play-btn-click', function(event) {
+        event.preventDefault();
+        fireGoogleAnalyticsEvent('Jaws', 'Click', 'Google Play');
+        fbq('track', 'JawsGooglePlay');
+
+        window.open($(this).attr('href'));
+    });
+}
+bindJawsOfBattleGooglePlayBtnClick();
+
+function bindJawsOfBattleAppStoreBtnClick() {
+    $(document).on('click', '.jaws-of-battle-app-store-btn-click', function(event) {
+        event.preventDefault();
+        fireGoogleAnalyticsEvent('Jaws', 'Click', 'Apple');
+        fbq('track', 'JawsAppStore');
+
+        window.open($(this).attr('href'));
+    });
+}
+bindJawsOfBattleAppStoreBtnClick();
+
 function bindDentacareGooglePlayBtnClick() {
     $(document).on('click', '.dentacare-google-play-btn-click', function(event) {
         event.preventDefault();
