@@ -17,7 +17,6 @@ mix.styles([
     'public/assets/libs/bootstrap/css/bootstrap.min.css',
     'public/assets/libs/font-awesome/css/font-awesome.min.css',
     'node_modules/slick-carousel/slick/slick.css',
-    'node_modules/pretty-checkbox/dist/pretty-checkbox.min.css',
 ], 'public/dist/css/front-libs-style.css');
 
 mix.styles([
