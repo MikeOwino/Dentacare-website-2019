@@ -87,7 +87,7 @@
         </div>
     </header>
     <main>@yield('content')</main>
-    <footer class="padding-bottom-30 padding-top-40 margin-top-20 container border-top @if((empty($_COOKIE['hide-holiday-calendar-banner']) && strtotime('2020/12/01 00:00:00') < time()) || !empty($_COOKIE['test-holiday-calendar-banner'])) extra-bottom-padding @endif">
+    <footer class="padding-bottom-30 padding-top-40 margin-top-20 container border-top">
         <div class="row fs-0">
             <div class="col-xs-12 col-md-3 inline-block text-center-xs text-center-sm padding-bottom-xs-20 padding-bottom-sm-20">
                 <figure itemscope="" itemtype="http://schema.org/Organization">
@@ -138,7 +138,7 @@
         </div>
     </footer>
 
-    @if((empty($_COOKIE['hide-holiday-calendar-banner']) && strtotime('2020/12/01 00:00:00') < time()) || !empty($_COOKIE['test-holiday-calendar-banner']))
+    {{--@if((empty($_COOKIE['hide-holiday-calendar-banner']) && strtotime('2020/12/01 00:00:00') < time()) || !empty($_COOKIE['test-holiday-calendar-banner']))
         <div class="bottom-fixed-promo-banner fs-0">
             <a href="javascript:void(0);" class="close-banner">×</a>
             <a href="https://dentacoin.com/holiday-calendar/2020" target="_blank">
@@ -159,7 +159,7 @@
                 </div>
             </a>
         </div>
-    @endif
+    @endif--}}
 
 <div class="response-layer">
     <div class="wrapper">
