@@ -190,6 +190,7 @@ class DentacareDCNController extends Controller {
     }
 
     protected function doubleCheckDentacareTransaction(Request $request)   {
+        die('asd');
         $this->validate($request, [
             'type' => 'required',
             'address' => 'required',
