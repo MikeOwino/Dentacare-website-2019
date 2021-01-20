@@ -190,7 +190,6 @@ class DentacareDCNController extends Controller {
     }
 
     protected function doubleCheckDentacareTransaction(Request $request)   {
-        die('asd');
         $this->validate($request, [
             'type' => 'required',
             'address' => 'required',
@@ -205,6 +204,7 @@ class DentacareDCNController extends Controller {
 
         Log::info('doubleCheckDentacareTransaction method:', ['type' => $request->input('type'), 'address' => $request->input('address'), 'amount' => $request->input('amount'), 'transaction_id' => $request->input('transaction_id')]);
 
+        die('asd');
         if ($request->input('type') == 'dentacare') {
             Log::info('Dentacare user logged in successfully.');
             $transaction = DB::connection('mysql2')->table('wallet_transactions')->select('wallet_transactions.*')->where(array('wallet_transactions.wallet_dcn' => $request->input('address'), 'wallet_transactions.amount_dcn' => $request->input('amount'), 'wallet_transactions.id' => $request->input('transaction_id')))->get()->first();
