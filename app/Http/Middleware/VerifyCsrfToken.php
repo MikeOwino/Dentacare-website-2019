@@ -14,7 +14,7 @@ class VerifyCsrfToken extends BaseVerifier
      * @var array
      */
     protected $except = [
-        'authenticate-dentacare-user'
+        'authenticate-dentacare-user', 'double-check-dentacare-transaction'
     ];
 
     protected function addCookieToResponse($request, $response) {

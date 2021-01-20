@@ -38,4 +38,6 @@ Route::group(['prefix' => '/', 'middleware' => 'frontEndMiddleware'], function (
     Route::get('/custom-cookie', 'UserController@manageCustomCookie')->name('custom-cookie');
 
     Route::get('/sitemap', 'Controller@getSitemap')->name('sitemap');
+
+    Route::post('/double-check-dentacare-transaction', 'DentacareDCNController@doubleCheckDentacareTransaction')->name('double-check-dentacare-transaction');
 });

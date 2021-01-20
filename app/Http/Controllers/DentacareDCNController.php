@@ -188,4 +188,34 @@ class DentacareDCNController extends Controller {
             return redirect()->route('dentacare-password-reset', ['token' => $token])->with(array('error-response' => 'Password change failed, please try again later or request new password reset.'));
         }
     }
+
+    protected function doubleCheckDentacareTransaction(Request $request)   {
+        $this->validate($request, [
+            'type' => 'required',
+            'address' => 'required',
+            'amount' => 'required',
+            'transaction_id' => 'required'
+        ], [
+            'type.required' => 'Type is required.',
+            'address.required' => 'Address is required.',
+            'amount.required' => 'Amount is required.',
+            'transaction_id.required' => 'Amount is required.'
+        ]);
+
+        Log::info('doubleCheckDentacareTransaction method:', ['type' => $request->input('type'), 'address' => $request->input('address'), 'amount' => $request->input('amount'), 'transaction_id' => $request->input('transaction_id')]);
+
+        if ($request->input('type') == 'dentacare') {
+            Log::info('Dentacare user logged in successfully.');
+            $transaction = DB::connection('mysql2')->table('wallet_transactions')->select('wallet_transactions.*')->where(array('wallet_transactions.wallet_dcn' => $request->input('address'), 'wallet_transactions.amount_dcn' => $request->input('amount'), 'wallet_transactions.id' => $request->input('transaction_id')))->get()->first();
+            if (!empty($transaction)) {
+                Log::info('doubleCheckDentacareTransaction method succeed.');
+                return response()->json(['success' => true]);
+            } else {
+                Log::info('doubleCheckDentacareTransaction method failed.');
+                return response()->json(['success' => false]);
+            }
+        } else {
+            return response()->json(['success' => false]);
+        }
+    }
 }

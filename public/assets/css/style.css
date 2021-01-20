@@ -5776,8 +5776,7 @@ img {
 .text-decoration {
   text-decoration: underline; }
 
-/*
-.bottom-fixed-promo-banner {
+/*.bottom-fixed-promo-banner {
     width: 100%;
     position: fixed;
     bottom: 0;
