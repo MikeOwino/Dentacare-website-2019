@@ -36,6 +36,19 @@
     }
 }
 
+.visit-website-btn {
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center center;
+    background-image: url(/assets/uploads/visit-website-green-not-pressed.png);
+    width: 200px;
+    height: 110px;
+    @include simple_transition(.3s);
+    @include breakpoint($md) {
+        background-image: url(/assets/uploads/visit-website-green-pressed.png);
+    }
+}
+
 .social-login-btn {
     background-color: white;
     width: 100%;
