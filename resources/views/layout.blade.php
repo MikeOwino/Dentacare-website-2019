@@ -170,7 +170,7 @@
 </div>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaVeHq_LOhQndssbmw-aDnlMwUG73yCdk&libraries=places&language=en"></script>
-<script src="https://dentacoin.com/assets/js/basic.js?v=1.0.10"></script>
+<script src="https://dentacoin.com/assets/js/basic.js?v={{time()}}"></script>
 <script src="/dist/js/front-libs-script.js?v=1.0.10"></script>
 
 @if(empty($_COOKIE['performance_cookies']) && empty($_COOKIE['functionality_cookies']) && empty($_COOKIE['marketing_cookies']) && empty($_COOKIE['strictly_necessary_policy']))
