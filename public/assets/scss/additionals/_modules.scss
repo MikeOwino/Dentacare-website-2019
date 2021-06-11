@@ -45,7 +45,9 @@
     height: 110px;
     @include simple_transition(.3s);
     @include breakpoint($md) {
-        background-image: url(/assets/uploads/visit-website-green-pressed.png);
+        &:hover {
+            background-image: url(/assets/uploads/visit-website-green-pressed.png);
+        }
     }
 }
 

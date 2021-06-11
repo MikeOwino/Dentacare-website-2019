@@ -168,7 +168,7 @@
   -ms-transition: 0.3s;
   transition: 0.3s; }
   @media screen and (min-width: 992px) {
-    .visit-website-btn {
+    .visit-website-btn:hover {
       background-image: url(/assets/uploads/visit-website-green-pressed.png); } }
 
 .social-login-btn {
