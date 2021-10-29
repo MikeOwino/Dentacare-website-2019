@@ -176,4 +176,22 @@ class Controller extends BaseController
             $ipaddress = 'UNKNOWN';
         return $ipaddress;
     }
+
+    protected function handleApiEndpoints($slug, Request $request) {
+        switch ($slug) {
+            case 'users-one-week-behind':
+                return DB::connection('mysql2')->table('users')->where('created_at', '>', date('Y-m-d', strtotime('-7 days')))->count();
+                break;
+            case 'users-one-month-behind':
+                return DB::connection('mysql2')->table('users')->where('created_at', '>', date('Y-m-d', strtotime('-1 month')))->count();
+                break;
+            case 'users-for-the-current-month':
+                $first_day_of_this_month = new \DateTime('first day of this month');
+                return DB::connection('mysql2')->table('users')->where('created_at', '>', $first_day_of_this_month->format('Y-m-d'))->count();
+                break;
+            case 'users':
+                return DB::connection('mysql2')->table('users')->count();
+                break;
+            }
+    }
 }

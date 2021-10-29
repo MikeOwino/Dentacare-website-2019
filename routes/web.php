@@ -29,15 +29,13 @@ Route::group(['prefix' => '/', 'middleware' => 'frontEndMiddleware'], function (
 
     Route::post('/submit-dentacare-password-reset/{token}', 'DentacareDCNController@submitPasswordReset')->name('submit-dentacare-password-reset');
 
-    Route::get('/user-logout', 'UserController@userLogout')->name('user-logout');
-
     Route::post('/authenticate-dentacare-user', 'DentacareDCNController@authenticate')->name('authenticate-dentacare-user');
 
     Route::post('/social-authenticate-dentacare-user', 'DentacareDCNController@socialAuthenticate')->name('social-authenticate-dentacare-user');
 
-    Route::get('/custom-cookie', 'UserController@manageCustomCookie')->name('custom-cookie');
-
     Route::get('/sitemap', 'Controller@getSitemap')->name('sitemap');
 
     Route::post('/double-check-dentacare-transaction', 'DentacareDCNController@doubleCheckDentacareTransaction')->name('double-check-dentacare-transaction');
+
+    Route::any('/info/{slug}', 'Controller@handleApiEndpoints')->name('api-endpoints');
 });
